@@ -42,6 +42,6 @@ class ImageButtons extends Button {
   }
   
   void display(){
-    image(currentimage, x, y, w, h);
+    image(currentimage, x, y);
   }
 }
