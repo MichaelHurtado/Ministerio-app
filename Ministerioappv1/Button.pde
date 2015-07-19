@@ -3,21 +3,13 @@ class Button
   int x, y;
   int w, h;
   boolean over = false;
-  boolean pressed = false;
-  boolean beforepressed = false;  
+  boolean pressed = false;   
   
   void pressed() {
-    
-    if(beforepressed && !mousePressed){
+    if(over && mousePressed) {
       pressed = true;
     } else {
       pressed = false;
-    }   
-    
-    if(over && mousePressed){
-      beforepressed = true;
-    } else {
-      beforepressed = false;
     }    
   }
   

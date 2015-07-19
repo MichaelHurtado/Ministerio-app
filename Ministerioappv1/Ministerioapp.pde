@@ -7,8 +7,8 @@ lengua4=matshiguenka
 lengua5=yine
 */
 
-PFont fontMenu;
-PImage imagenIntro;
+//PImage file;
+PFont fontIntro, fontMenu;
 
 String[] lenguas = {"Aymara","Jaqaru","Quechua","Shipibo","Matsiguenka","Yine"}; 
 boolean intro = true;
@@ -49,14 +49,15 @@ void setup(){
   size(displayWidth,displayHeight);
   anchoGlobal = displayWidth;
   altoGlobal = displayHeight;
-  imagenIntro=loadImage("nombre.png");
+  
   orientation(LANDSCAPE);
   
   for(int i=0;i<file.length;i++){
     file[i]=loadImage("lengua"+str(i)+".png");
     alfa[i]=escalador[i]*anchoGlobal/(8*file[i].width);
-    menuButtons[i] = new ImageButtons(int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int(modificadorvert[i]*((altoGlobal/2)-(alfa[i]*file[i].height)/2)),int(alfa[i]*file[i].width),int(alfa[i]*file[i].height),file[i],file[i],1); 
+    menuButtons[i] = new ImageButtons(int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int(modificadorvert[i]*((altoGlobal/2)-(alfa[i]*file[i].height)/2)),int(alfa[i]*file[i].width),int(alfa[i]*file[i].height),file[i],file[i]); 
   }
+  fontIntro = loadFont("CourierNew36.vlw");
   fontMenu = loadFont("Haettenschweiler-48.vlw");
 }
 
@@ -108,8 +109,8 @@ void displayMenu(){
 /////////////////////////////////////////////////////////////////////////
 void displaySubmenu1(){
   submenu1();
-  menuButtons[5].update();
-  menuButtons[5].display();
+  menuButtons[1].update();
+  menuButtons[1].display();
   
   submenu1=pageact;
   conociendonos1=pagenew;
@@ -117,8 +118,8 @@ void displaySubmenu1(){
 
 void displayConociendonos1(){
   conociendonos1();
-  menuButtons[5].update();
-  menuButtons[5].display();
+  menuButtons[2].update();
+  menuButtons[2].display();
   
   conociendonos1=pageact;
   madretierra1=pagenew;
@@ -190,9 +191,6 @@ void entrada(){
 
 void nombre(){
   background(255);
-  imageMode(CENTER);
-  image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
-  imageMode(CORNER);
 }
 
 void menu(){
@@ -203,7 +201,8 @@ void menu(){
   //textSize(altoGlobal/16);
   for(int i=0;i<lenguas.length;i++){
     text(lenguas[i],factorDesp[i]*int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int((1.1*(altoGlobal/2)+(alfa[1]*file[1].height)/2)));  
-  }  
+  }
+  
 }
 
 //funciones de cada display de la lengua0

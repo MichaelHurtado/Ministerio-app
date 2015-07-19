@@ -2,16 +2,14 @@ class ImageButtons extends Button {
   PImage base;
   PImage down;
   PImage currentimage;
-  int modo;
   //boolean pageact;
   //boolean pagenew;
 
-  ImageButtons(int ix, int iy, int iw, int ih, PImage ibase, PImage idown, int imodo){
+  ImageButtons(int ix, int iy, int iw, int ih, PImage ibase, PImage idown){
     x = ix;
     y = iy;
     w = iw;
     h = ih;
-    modo = imodo;
     base = ibase;
     down = idown;
     currentimage = base;
@@ -25,23 +23,13 @@ class ImageButtons extends Button {
     pageact=true;
     pagenew=false;
     
-    if(modo==1){
-      if(pressed) {
-        currentimage = down;
-        pageact = false;
-        pagenew = true;
-      } 
-      else {
-        currentimage = base;
-      }
-    }
-    else{
-      if(pressed){
-        currentimage = down;
-      }
-      else {
-        currentimage = base;
-      }
+    if(pressed) {
+      currentimage = down;
+      pageact = false;
+      pagenew = true;
+    } 
+    else {
+      currentimage = base;
     }
   }
   
