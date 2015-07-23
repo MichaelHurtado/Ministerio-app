@@ -3,10 +3,12 @@ class ImageButtons extends Button {
   PImage down;
   PImage currentimage;
   int modo;
+  int ID;
   //boolean pageact;
   //boolean pagenew;
 
-  ImageButtons(int ix, int iy, int iw, int ih, PImage ibase, PImage idown, int imodo){
+  ImageButtons(int iID,int imodo,int ix, int iy, int iw, int ih, PImage ibase, PImage idown){
+    ID = iID;
     x = ix;
     y = iy;
     w = iw;
@@ -18,30 +20,68 @@ class ImageButtons extends Button {
   
   }
   
-  void update(){
+  void update() {
     over();
     pressed();
-    
-    pageact=true;
-    pagenew=false;
-    
-    if(modo==1){
-      if(pressed) {
-        currentimage = down;
-        pageact = false;
-        pagenew = true;
-      } 
-      else {
-        currentimage = base;
-      }
-    }
-    else{
-      if(pressed){
-        currentimage = down;
-      }
-      else {
-        currentimage = base;
-      }
+    switch(0){
+      case 0:    //Menú pricipal
+        if(pressed && (ID<=5)) {
+          switch(ID) {
+            case 0:      //Submenú Aymara
+              activity = 1;
+              break;
+            case 1:      //Submenú Jaqaru
+              activity = 40;
+              break;
+            case 2:      //Submenú Quechua
+              activity = 79;
+              break;
+            case 3:      //Submenú Shipibo
+              activity = 118;
+              break;
+            case 4:      //Submenú Matsiguenka
+              activity = 157;
+              break;
+            case 5:      //Submenú Yine
+              activity = 196;
+              break;
+          }
+          currentimage = down;
+        }
+        else {
+          currentimage = base;
+        }
+        break;
+      case 1:    //Submenú
+        break;
+      case 2:    //Adelantar
+        if(pressed) {
+          activity++;
+          currentimage = down;
+        } 
+        else {
+          currentimage = base;
+        }
+        break;
+      case 3:    //Regresar
+        if(pressed) {
+          activity--;
+          currentimage = down;
+        } 
+        else {
+          currentimage = base;
+        }
+        break;
+      case 4:    //Mostrar texto
+        if(pressed){
+          currentimage = down;
+        }
+        else {
+          currentimage = base;
+        }
+        break;
+      case 5:    //Audio
+        break;
     }
   }
   
