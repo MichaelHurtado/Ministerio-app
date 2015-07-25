@@ -17,12 +17,13 @@ class ImageButtons extends Button {
     base = ibase;
     down = idown;
     currentimage = base;
+  
   }
   
   void update() {
     over();
     pressed();
-    switch(modo){
+    switch(0){
       case 0:    //Menú pricipal
         if(pressed && (ID<=5)) {
           switch(ID) {
@@ -51,25 +52,27 @@ class ImageButtons extends Button {
           currentimage = base;
         }
         break;
-      case 1:    //Adelantar
+      case 1:    //Submenú
+        break;
+      case 2:    //Adelantar
         if(pressed) {
           activity++;
           currentimage = down;
-        }
+        } 
         else {
           currentimage = base;
         }
         break;
-      case 2:    //Regresar
+      case 3:    //Regresar
         if(pressed) {
           activity--;
           currentimage = down;
-        }
+        } 
         else {
           currentimage = base;
         }
         break;
-      case 3:    //Mostrar texto
+      case 4:    //Mostrar texto
         if(pressed){
           currentimage = down;
         }
@@ -77,7 +80,7 @@ class ImageButtons extends Button {
           currentimage = base;
         }
         break;
-      case 4:    //Audio
+      case 5:    //Audio
         break;
     }
   }
