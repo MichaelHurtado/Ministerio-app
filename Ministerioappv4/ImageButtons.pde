@@ -62,36 +62,7 @@ class ImageButtons extends Button {
         break;
       case 2:    //Regresar
         if(pressed) {
-          switch(ID){
-            case 6:
-              activity--;
-              break;
-            case 8:
-              switch(--activity/39){
-                case 0:
-                  activity = 1;
-                  break;
-                case 1:
-                  activity = 40;
-                  break;
-                case 2:
-                  activity = 79;
-                  break;
-                case 3:
-                  activity = 118;
-                  break;
-                case 4:
-                  activity = 157;
-                  break;
-                case 5:
-                  activity = 196;
-                  break;
-              }
-              break;
-            case 9:
-              activity = 0;
-              break;
-          }
+          activity--;
           currentimage = down;
         }
         else {
