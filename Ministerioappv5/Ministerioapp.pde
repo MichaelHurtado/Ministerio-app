@@ -7,6 +7,20 @@ lengua4=matshiguenka
 lengua5=yine
 */
 
+import apwidgets.*;
+APMediaPlayer a01,a02,a03,a04,a05,a06,
+              a11    ,a13,a14,a15,
+              
+              a31,a32,a33,a34,a35,a36,a37,a38,a39,a310,
+              a41,a42,a43,a44,a45,
+              a51,
+              j01,j02,j03,j04,j05,j06,
+              j11,j12    ,j14,j15,
+              
+              j31,j32,j33,j34,j35,j36,j37,j38,j39,
+              j41,j42,j43,j44,j45,
+              j51;
+
 PFont fontMenu,fontsubMenu,fontsubmenu;
 PImage imagenMin;
 PImage imagenIntro;
@@ -18,31 +32,18 @@ boolean intro = true;
 
 float anchoGlobal;
 float altoGlobal;
-float beta;
 
-int n=6, m=44;
-int activity = 0, last_activity = 0;
+int n=6;
+int activity = 0;
 
 PImage[] file = new PImage[n];
-PImage[] aymara_file = new PImage[m];  //Aymara
-PImage[] aymara_base = new PImage[13];
-PImage[] jaqaru_file = new PImage[m];  //Jaqaru
-PImage[] jaqaru_base = new PImage[13];
-PImage[] quechua_file = new PImage[m];  //Quechua
-PImage[] quechua_base = new PImage[13];
-PImage[] shipibo_file = new PImage[m];  //Shipibo
-PImage[] shipibo_base = new PImage[13]; 
-PImage[] matsiguenka_file = new PImage[m];  //Matsiguenka
-PImage[] matsiguenka_base = new PImage[13];
-PImage[] yine_file = new PImage[m];  //Yine
-PImage[] yine_base = new PImage[13];
-
 ImageButtons[] menuButtons = new ImageButtons[n+4];
-ImageButtons[] contenidoButtons = new ImageButtons[m*6];
 float[] alfa = new float[n];
 float[] escalador={1.0,0.84,0.87,1.15,0.84,0.98};
 float[] modificadorvert={1.0,1.02,1.02,1.05,1.06,0.95};
 float[] factorDesp={1.5,1.195,1.14,1.14,1.08,1.085};
+
+float beta;
 
 SqButtons[] submenuButtons = new SqButtons[36];
 String[] submenu = {"Saludándonos","Conociéndonos","Estamos viviendo","Madre tierra","Animales","Cantemos"}; 
@@ -55,10 +56,8 @@ String[][] SUBMENU = {{"Aruntasipxañani","Uñt’asipxañani","Jakasisipxktanwa
 
 void setup(){
   size(displayWidth,displayHeight);
-  
   anchoGlobal = displayWidth;
   altoGlobal = displayHeight;
-  //size(720,480);
   //anchoGlobal = 720;
   //altoGlobal = 480;
   imagenMin=loadImage("mincultura.png");
@@ -78,92 +77,41 @@ void setup(){
     }
   }
   
-  for(int i=0;i<m-10;i++){
-    if(i<13){
-      //aymara_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
-      jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png"); /**/
-      //quechua_base[i]=loadImage(lenguas[2]+"_base"+str(i)+".png");
-      //shipibo_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
-      //matsiguenka_base[i]=loadImage(lenguas[4]+"_base"+str(i)+".png");
-      //yine_base[i]=loadImage(lenguas[5]+"_base"+str(i)+".png");
-    }
-    //aymara_file[i]=loadImage(lenguas[0]+str(i)+".png");
-    jaqaru_file[i]=loadImage(lenguas[1]+str(i)+".png");
-    //quechua_file[i]=loadImage(lenguas[2]+str(i)+".png");
-    //shipibo_file[i]=loadImage(lenguas[3]+str(i)+".png");
-    //matsiguenka_file[i]=loadImage(lenguas[4]+str(i)+".png");
-    //yine_file[i]=loadImage(lenguas[5]+str(i)+".png");
-  }
-  for(int i=34;i<44;i++){
-    jaqaru_file[i]=loadImage(lenguas[1]+str(i+36)+".png");
-  }
-  
-  int i=0;
-//  //Imagenes Aymara
-  //Imagenes Jaqaru
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 0 || Hola || Saludo
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 1 || Hola || Respuesta
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 2 || Chau || Despedida
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 3 || Chau || Respuesta de despedida
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 4 || Si
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 5 || No
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 6 || ¿Cuál es tu nombre?
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 7 || Mi nombre es
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 8 || ¿Cuántos años tienes?
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 9 || Yo tengo
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 10 || ¿De dónde eres?
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 11 || Yo soy de 
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 12 || ¿Dónde vives? 
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 13 || Yo vivo en
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 14 || ¿A dónde estás yendo? 
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 15 || Estoy yendo a*/
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 16 || Yo canto 
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 17 || To canté
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 18 || Yo cantaré
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 19 || Tú cantas
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 20 || Tú cantaste
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 21 || Tú cantarás
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 22 || Él canta
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 23 || Él cantó
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 24 || Él cantará
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 25 || Ella canta
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 26 || Ella cantó
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 27 || Ella cantará
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 28 || Nosotros cantamos
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 29 || Nosotros cantamos
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 30 || Nosotros cantaremos
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 31 || Ustedes cantan
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 32 || Ustedes cantaron
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 33 || Ustedes cantarán
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[3],jaqaru_file[i++]);  //Madre tierra || 34 || Árbol
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[4],jaqaru_file[i++]);  //Madre tierra || 35 || Río 
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[5],jaqaru_file[i++]);  //Madre tierra || 34 || Nubes
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[6],jaqaru_file[i++]);  //Madre tierra || 35 || Lluvia
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[7],jaqaru_file[i++]);  //Madre tierra || 34 || Casa
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[8],jaqaru_file[i++]);  //Madre tierra || 35 || Comida
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[9],jaqaru_file[i++]);  //Madre tierra || 34 || Sol
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[10],jaqaru_file[i++]);  //Madre tierra || 35 || Luna 
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[11],jaqaru_file[i++]);  //Madre tierra || 34 || Estrellas
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[12],jaqaru_file[i++]);  //Madre tierra || 35 || Fuego 
-  
-  
   imagenRight=loadImage("right.png");
   beta = imagenRight.height/altoGlobal;
-  menuButtons[7] = new ImageButtons(7,1,int(anchoGlobal-(imagenRight.width/beta))+1,0,int(imagenRight.width/beta),int(altoGlobal),imagenRight,imagenRight);  //Adelantar
+  menuButtons[7] = new ImageButtons(7,1,int(anchoGlobal-(imagenRight.width/beta)),0,int(imagenRight.width/beta),int(altoGlobal),imagenRight,imagenRight);  //Adelantar
   imagenLeft=loadImage("left.png");
   menuButtons[6] = new ImageButtons(6,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar
-  menuButtons[8] = new ImageButtons(8,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al submenu
-  menuButtons[9] = new ImageButtons(9,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al menu principal
+  menuButtons[8] = new ImageButtons(8,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al submenu principal
+  menuButtons[9] = new ImageButtons(9,2,0,0,int(imagenRight.width/beta),int(altoGlobal),imagenLeft,imagenLeft);   //Retrasar al submenu principal
 
   fontMenu = loadFont("Haettenschweiler-48.vlw");
   fontsubMenu = loadFont("CourierNew36.vlw");
   fontsubmenu = loadFont("Haettenschweiler-100.vlw");
   //agregar otro 
+  
+  //Sonido
+  for(int i=0;i<7;i++){
+    saludandonosa(i);
+    saludandonosj(i);
+  }
+  for(int i=0;i<10;i++){
+    conociendonosa(i);
+    conociendonosj(i);
+    animalesa(i);
+    animalesj(i);
+  }
+  for(int i=0;i<10;i++){
+    madretierraa(i);
+    madretierraj(i);
+  }
+  cantemosa();
+  cantemosj();
 }
 
 void draw(){
   switch(activity){
-    case 0:    // Menú principial ||Aymara Jaqaru Quechua Shipibo Matsiguenka Yine
+    case 0:    // Menú principial ||Jaqaru Aymara Matsiguenka Quechua Shipibo Yine
         //Función de entrada
         if (intro) {
             if(millis()<5000){
@@ -214,40 +162,25 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-     for(int i=0;i<2;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-     }
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
+      background(255);
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
-      }
-      for(int i=2;i<4;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
       }
       break;
     case 4:    // Submenú || Aymara || Saludándonos || 3
       background(255);
       menuButtons[6].update();
       menuButtons[6].display();
-      for(int i=4;i<6;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 5:    // Submenú || Aymara || Conociendonos || 1
       background(255);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();
-      }
-      for(int i=6;i<8;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
       }
       break;
     case 6:    // Submenú || Aymara || Conociendonos || 2
@@ -256,20 +189,12 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=8;i<10;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 7:    // Submenú || Aymara || Conociendonos || 3
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
-      }
-      for(int i=10;i<12;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
       }
       break;
     case 8:    // Submenú || Aymara || Conociendonos || 4
@@ -278,29 +203,17 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=12;i<14;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 9:    // Submenú || Aymara || Conociendonos || 5
       background(255);
       menuButtons[6].update();
       menuButtons[6].display();
-      for(int i=14;i<16;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 10:   // Submenú || Aymara || Verbo: Cantar || 1
       background(255);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
-      }
-      for(int i=16;i<19;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
       }
       break;
     case 11:   // Submenú || Aymara || Verbo: Cantar || 2
@@ -309,20 +222,12 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=19;i<22;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 12:   // Submenú || Aymara || Verbo: Cantar || 3
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
-      }
-      for(int i=22;i<25;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
       }
       break;
     case 13:   // Submenú || Aymara || Verbo: Cantar || 4
@@ -331,10 +236,6 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=25;i<28;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 14:   // Submenú || Aymara || Verbo: Cantar || 5
       background(255);
@@ -342,20 +243,12 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=28;i<31;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 15:   // Submenú || Aymara || Verbo: Cantar || 6
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
-      }
-      for(int i=31;i<34;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
       }
       break;
     case 16:   // Submenú || Aymara || Verbo: Cantar || 7
@@ -467,20 +360,12 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
-      for(int i=34;i<36;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 32:   // Submenú || Aymara || Madre tierra || 2
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
-      }
-      for(int i=36;i<38;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
       }
       break;
     case 33:   // Submenú || Aymara || Madre tierra || 3
@@ -489,10 +374,6 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=38;i<40;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 34:   // Submenú || Aymara || Madre tierra || 4
       background(255);
@@ -500,19 +381,11 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=40;i<42;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 35:   // Submenú || Aymara || Madre tierra || 5
       background(255);
       menuButtons[6].update();
       menuButtons[6].display();
-      for(int i=42;i<44;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 36:   // Submenú || Aymara || Animales || 1
       background(255);
@@ -1397,8 +1270,6 @@ void draw(){
       break;
     case 165:  // Submenú || Matsiguenka || Conociendonos || 5
       background(255);
-      menuButtons[6].update();
-      menuButtons[6].display();
       break;
     case 166:  // Submenú || Matsiguenka || Verbo: Cantar || 1
       background(255);
@@ -1874,3 +1745,381 @@ void draw(){
       break;
   }
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//Audios
+
+void saludandonosa(int i){
+  switch(i%6){
+    case 0:
+      a01 = new APMediaPlayer(this); //create new APMediaPlayer
+      a01.setMediaFile("a01.mp3"); //set the file (files are in data folder)
+      a01.setLooping(false); //restart playback end reached
+      a01.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      a02 = new APMediaPlayer(this); //create new APMediaPlayer
+      a02.setMediaFile("a02.mp3"); //set the file (files are in data folder)
+      a02.setLooping(false); //restart playback end reached
+      a02.setVolume(1.0, 1.0);
+      break;
+    case 2:
+      a03 = new APMediaPlayer(this); //create new APMediaPlayer
+      a03.setMediaFile("a03.mp3"); //set the file (files are in data folder)
+      a03.setLooping(false); //restart playback end reached
+      a03.setVolume(1.0, 1.0);
+      break;
+    case 3:
+      a04 = new APMediaPlayer(this); //create new APMediaPlayer
+      a04.setMediaFile("a04.mp3"); //set the file (files are in data folder)
+      a04.setLooping(false); //restart playback end reached
+      a04.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      a05 = new APMediaPlayer(this); //create new APMediaPlayer
+      a05.setMediaFile("a05.mp3"); //set the file (files are in data folder)
+      a05.setLooping(false); //restart playback end reached
+      a05.setVolume(1.0, 1.0);
+      break;
+    case 5:
+      a06 = new APMediaPlayer(this); //create new APMediaPlayer
+      a06.setMediaFile("a06.mp3"); //set the file (files are in data folder)
+      a06.setLooping(false); //restart playback end reached
+      a06.setVolume(1.0, 1.0);
+      break;
+  }
+}
+void conociendonosa(int i){
+  switch(i%5){
+    case 0:
+      a11 = new APMediaPlayer(this); //create new APMediaPlayer
+      a11.setMediaFile("a11.mp3"); //set the file (files are in data folder)
+      a11.setLooping(false); //restart playback end reached
+      a11.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      /*a12 = new APMediaPlayer(this); //create new APMediaPlayer
+      a12.setMediaFile("a12.mp3"); //set the file (files are in data folder)
+      a12.setLooping(false); //restart playback end reached
+      a12.setVolume(1.0, 1.0);*/
+      break;
+    case 2:
+      a13 = new APMediaPlayer(this); //create new APMediaPlayer
+      a13.setMediaFile("a13.mp3"); //set the file (files are in data folder)
+      a13.setLooping(false); //restart playback end reached
+      a13.setVolume(1.0, 1.0);
+      break;
+    case 3:
+      a14 = new APMediaPlayer(this); //create new APMediaPlayer
+      a14.setMediaFile("a14.mp3"); //set the file (files are in data folder)
+      a14.setLooping(false); //restart playback end reached
+      a14.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      a15 = new APMediaPlayer(this); //create new APMediaPlayer
+      a15.setMediaFile("a15.mp3"); //set the file (files are in data folder)
+      a15.setLooping(false); //restart playback end reached
+      a15.setVolume(1.0, 1.0);
+      break;
+  }
+}
+
+
+
+
+void madretierraa(int i){
+  switch(i%10){
+    case 0:
+      a31 = new APMediaPlayer(this); //create new APMediaPlayer
+      a31.setMediaFile("a31.mp3"); //set the file (files are in data folder)
+      a31.setLooping(false); //restart playback end reached
+      a31.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      a32 = new APMediaPlayer(this); //create new APMediaPlayer
+      a32.setMediaFile("a32.mp3"); //set the file (files are in data folder)
+      a32.setLooping(false); //restart playback end reached
+      a32.setVolume(1.0, 1.0);
+      break;
+    case 2:
+      a33 = new APMediaPlayer(this); //create new APMediaPlayer
+      a33.setMediaFile("a33.mp3"); //set the file (files are in data folder)
+      a33.setLooping(false); //restart playback end reached
+      a33.setVolume(1.0, 1.0);
+      break;
+    case 3:
+      a34 = new APMediaPlayer(this); //create new APMediaPlayer
+      a34.setMediaFile("a34.mp3"); //set the file (files are in data folder)
+      a34.setLooping(false); //restart playback end reached
+      a34.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      a35 = new APMediaPlayer(this); //create new APMediaPlayer
+      a35.setMediaFile("a35.mp3"); //set the file (files are in data folder)
+      a35.setLooping(false); //restart playback end reached
+      a35.setVolume(1.0, 1.0);
+      break;
+    case 5:
+      a36 = new APMediaPlayer(this); //create new APMediaPlayer
+      a36.setMediaFile("a36.mp3"); //set the file (files are in data folder)
+      a36.setLooping(false); //restart playback end reached
+      a36.setVolume(1.0, 1.0);
+      break;
+    case 6:
+      a37 = new APMediaPlayer(this); //create new APMediaPlayer
+      a37.setMediaFile("a37.mp3"); //set the file (files are in data folder)
+      a37.setLooping(false); //restart playback end reached
+      a37.setVolume(1.0, 1.0);
+      break;
+    case 7:
+      a38 = new APMediaPlayer(this); //create new APMediaPlayer
+      a38.setMediaFile("a38.mp3"); //set the file (files are in data folder)
+      a38.setLooping(false); //restart playback end reached
+      a38.setVolume(1.0, 1.0);
+      break;
+    case 8:
+      a39 = new APMediaPlayer(this); //create new APMediaPlayer
+      a39.setMediaFile("a39.mp3"); //set the file (files are in data folder)
+      a39.setLooping(false); //restart playback end reached
+      a39.setVolume(1.0, 1.0);
+      break;
+    case 9:
+      a310 = new APMediaPlayer(this); //create new APMediaPlayer
+      a310.setMediaFile("a310.mp3"); //set the file (files are in data folder)
+      a310.setLooping(false); //restart playback end reached
+      a310.setVolume(1.0, 1.0);
+      break;
+  }
+}
+
+void animalesa(int i){
+  switch(i%5){
+    case 0:
+      a41 = new APMediaPlayer(this); //create new APMediaPlayer
+      a41.setMediaFile("a41.mp3"); //set the file (files are in data folder)
+      a41.setLooping(false); //restart playback end reached
+      a41.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      a42 = new APMediaPlayer(this); //create new APMediaPlayer
+      a42.setMediaFile("a42.mp3"); //set the file (files are in data folder)
+      a42.setLooping(false); //restart playback end reached
+      a42.setVolume(1.0, 1.0);
+      break;
+    case 2:
+      a43 = new APMediaPlayer(this); //create new APMediaPlayer
+      a43.setMediaFile("a43.mp3"); //set the file (files are in data folder)
+      a43.setLooping(false); //restart playback end reached
+      a43.setVolume(1.0, 1.0);
+      break;
+    case 3:
+      a44 = new APMediaPlayer(this); //create new APMediaPlayer
+      a44.setMediaFile("a44.mp3"); //set the file (files are in data folder)
+      a44.setLooping(false); //restart playback end reached
+      a44.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      a45 = new APMediaPlayer(this); //create new APMediaPlayer
+      a45.setMediaFile("a45.mp3"); //set the file (files are in data folder)
+      a45.setLooping(false); //restart playback end reached
+      a45.setVolume(1.0, 1.0);
+      break;
+  }
+}
+
+void cantemosa(){ 
+      a51 = new APMediaPlayer(this); //create new APMediaPlayer
+      a51.setMediaFile("a51.mp3"); //set the file (files are in data folder)
+      a51.setLooping(false); //restart playback end reached
+      a51.setVolume(1.0, 1.0);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+void saludandonosj(int i){
+  switch(i%6){
+    case 0:
+      j01 = new APMediaPlayer(this); //create new APMediaPlayer
+      j01.setMediaFile("j01.mp3"); //set the file (files are in data folder)
+      j01.setLooping(false); //restart playback end reached
+      j01.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      j02 = new APMediaPlayer(this); //create new APMediaPlayer
+      j02.setMediaFile("j02.mp3"); //set the file (files are in data folder)
+      j02.setLooping(false); //restart playback end reached
+      j02.setVolume(1.0, 1.0);
+      break;
+    case 2:
+      j03 = new APMediaPlayer(this); //create new APMediaPlayer
+      j03.setMediaFile("j03.mp3"); //set the file (files are in data folder)
+      j03.setLooping(false); //restart playback end reached
+      j03.setVolume(1.0, 1.0);
+      break;
+    case 3:
+      j04 = new APMediaPlayer(this); //create new APMediaPlayer
+      j04.setMediaFile("j04.mp3"); //set the file (files are in data folder)
+      j04.setLooping(false); //restart playback end reached
+      j04.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      j05 = new APMediaPlayer(this); //create new APMediaPlayer
+      j05.setMediaFile("j05.mp3"); //set the file (files are in data folder)
+      j05.setLooping(false); //restart playback end reached
+      j05.setVolume(1.0, 1.0);
+      break;
+    case 5:
+      j06 = new APMediaPlayer(this); //create new APMediaPlayer
+      j06.setMediaFile("j06.mp3"); //set the file (files are in data folder)
+      j06.setLooping(false); //restart playback end reached
+      j06.setVolume(1.0, 1.0);
+      break;
+  }
+}
+void conociendonosj(int i){
+  switch(i%5){
+    case 0:
+      j11 = new APMediaPlayer(this); //create new APMediaPlayer
+      j11.setMediaFile("j11.mp3"); //set the file (files are in data folder)
+      j11.setLooping(false); //restart playback end reached
+      j11.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      j12 = new APMediaPlayer(this); //create new APMediaPlayer
+      j12.setMediaFile("j12.mp3"); //set the file (files are in data folder)
+      j12.setLooping(false); //restart playback end reached
+      j12.setVolume(1.0, 1.0);
+      break;
+    case 2:
+      /*j13 = new APMediaPlayer(this); //create new APMediaPlayer
+      j13.setMediaFile("j13.mp3"); //set the file (files are in data folder)
+      j13.setLooping(false); //restart playback end reached
+      j13.setVolume(1.0, 1.0);*/
+      break;
+    case 3:
+      j14 = new APMediaPlayer(this); //create new APMediaPlayer
+      j14.setMediaFile("j14.mp3"); //set the file (files are in data folder)
+      j14.setLooping(false); //restart playback end reached
+      j14.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      j15 = new APMediaPlayer(this); //create new APMediaPlayer
+      j15.setMediaFile("j15.mp3"); //set the file (files are in data folder)
+      j15.setLooping(false); //restart playback end reached
+      j15.setVolume(1.0, 1.0);
+      break;
+  }
+}
+
+
+
+
+void madretierraj(int i){
+  switch(i%10){
+    case 0:
+      j31 = new APMediaPlayer(this); //create new APMediaPlayer
+      j31.setMediaFile("j31.mp3"); //set the file (files are in data folder)
+      j31.setLooping(false); //restart playback end reached
+      j31.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      j32 = new APMediaPlayer(this); //create new APMediaPlayer
+      j32.setMediaFile("j32.mp3"); //set the file (files are in data folder)
+      j32.setLooping(false); //restart playback end reached
+      j32.setVolume(1.0, 1.0);
+      break;
+    case 2:
+      j33 = new APMediaPlayer(this); //create new APMediaPlayer
+      j33.setMediaFile("j33.mp3"); //set the file (files are in data folder)
+      j33.setLooping(false); //restart playback end reached
+      j33.setVolume(1.0, 1.0);
+      break;
+    case 3:
+      j34 = new APMediaPlayer(this); //create new APMediaPlayer
+      j34.setMediaFile("j34.mp3"); //set the file (files are in data folder)
+      j34.setLooping(false); //restart playback end reached
+      j34.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      j35 = new APMediaPlayer(this); //create new APMediaPlayer
+      j35.setMediaFile("j35.mp3"); //set the file (files are in data folder)
+      j35.setLooping(false); //restart playback end reached
+      j35.setVolume(1.0, 1.0);
+      break;
+    case 5:
+      j36 = new APMediaPlayer(this); //create new APMediaPlayer
+      j36.setMediaFile("j36.mp3"); //set the file (files are in data folder)
+      j36.setLooping(false); //restart playback end reached
+      j36.setVolume(1.0, 1.0);
+      break;
+    case 6:
+      j37 = new APMediaPlayer(this); //create new APMediaPlayer
+      j37.setMediaFile("j37.mp3"); //set the file (files are in data folder)
+      j37.setLooping(false); //restart playback end reached
+      j37.setVolume(1.0, 1.0);
+      break;
+    case 7:
+      j38 = new APMediaPlayer(this); //create new APMediaPlayer
+      j38.setMediaFile("j38.mp3"); //set the file (files are in data folder)
+      j38.setLooping(false); //restart playback end reached
+      j38.setVolume(1.0, 1.0);
+      break;
+    case 8:
+      j39 = new APMediaPlayer(this); //create new APMediaPlayer
+      j39.setMediaFile("j39.mp3"); //set the file (files are in data folder)
+      j39.setLooping(false); //restart playback end reached
+      j39.setVolume(1.0, 1.0);
+      break;
+    case 9:
+      /*j310 = new APMediaPlayer(this); //create new APMediaPlayer
+      j310.setMediaFile("j310.mp3"); //set the file (files are in data folder)
+      j310.setLooping(false); //restart playback end reached
+      j310.setVolume(1.0, 1.0);*/
+      break;
+  }
+}
+
+void animalesj(int i){
+  switch(i%5){
+    case 0:
+      j41 = new APMediaPlayer(this); //create new APMediaPlayer
+      j41.setMediaFile("j41.mp3"); //set the file (files are in data folder)
+      j41.setLooping(false); //restart playback end reached
+      j41.setVolume(1.0, 1.0);
+      break;
+    case 1:
+      j42 = new APMediaPlayer(this); //create new APMediaPlayer
+      j42.setMediaFile("j42.mp3"); //set the file (files are in data folder)
+      j42.setLooping(false); //restart playback end reached
+      j42.setVolume(1.0, 1.0);
+      break;
+    case 2:
+      j43 = new APMediaPlayer(this); //create new APMediaPlayer
+      j43.setMediaFile("j43.mp3"); //set the file (files are in data folder)
+      j43.setLooping(false); //restart playback end reached
+      j43.setVolume(1.0, 1.0);
+      break;
+    case 3:
+      j44 = new APMediaPlayer(this); //create new APMediaPlayer
+      j44.setMediaFile("j44.mp3"); //set the file (files are in data folder)
+      j44.setLooping(false); //restart playback end reached
+      j44.setVolume(1.0, 1.0);
+      break;
+    case 4:
+      j45 = new APMediaPlayer(this); //create new APMediaPlayer
+      j45.setMediaFile("j45.mp3"); //set the file (files are in data folder)
+      j45.setLooping(false); //restart playback end reached
+      j45.setVolume(1.0, 1.0);
+      break;
+  }
+}
+
+void cantemosj(){
+      j51 = new APMediaPlayer(this); //create new APMediaPlayer
+      j51.setMediaFile("j51.mp3"); //set the file (files are in data folder)
+      j51.setLooping(false); //restart playback end reached
+      j51.setVolume(1.0, 1.0);
+}
+
