@@ -16,6 +16,7 @@ PImage imagenRight;
 PImage imagenLeft;
 
 String[] lenguas = {"Aymara","Jaqaru","Quechua","Shipibo","Matsiguenka","Yine"}; 
+
 boolean intro = true;
 
 float anchoGlobal;
@@ -104,6 +105,13 @@ void draw(){
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
                 imageMode(CORNER);
+                
+                j=0;
+                if(j==0){
+                  imagenMin=loadImage("letraslema.png");
+                  j=1;
+                }
+                
             }
             else { intro = false; }
         }
@@ -113,6 +121,9 @@ void draw(){
           textFont(fontMenu,int(altoGlobal/16));
           fill(255);
           textAlign(CENTER);
+          imageMode(CENTER);
+          image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*anchoGlobal/800,imagenMin.height*anchoGlobal/800);
+          imageMode(CORNER);
           //textSize(altoGlobal/16);
           for(int i=0;i<6;i++){
             text(lenguas[i],factorDesp[i]*int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int((1.1*(altoGlobal/2)+(alfa[1]*file[1].height)/2)));  
