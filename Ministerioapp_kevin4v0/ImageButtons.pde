@@ -48,30 +48,14 @@ class ImageButtons extends Button {
       case 1:    //3 sujetos
         switch(posicion){
           case 0:
-            x = int(anchoGlobal/20);
-            y = int(altoGlobal/5);
             break;
           case 1:
-            x = int(anchoGlobal/2.9);
-            y = int(altoGlobal/5);
             break;
           case 2:
-            x = int(anchoGlobal/1.6);
-            y = int(altoGlobal/5);
             break;
         }
         break;
       case 2:    //2 objetos
-        switch(posicion){
-          case 0:
-            x = int(anchoGlobal/5);
-            y = int(altoGlobal/5);
-            break;
-          case 1:
-            x = int(anchoGlobal/2);
-            y = int(altoGlobal/5);
-            break;
-        }
         break;
     }
     currentimage = base;
