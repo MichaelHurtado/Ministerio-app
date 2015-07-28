@@ -6,8 +6,9 @@ class ImageButtons extends Button {
   int posicion;
   int modo;
   int ID;
-  //boolean pageact;
-  //boolean pagenew;
+  boolean dependencia;
+  String texto;
+  String currenttexto;
 
   ImageButtons(int iID,int imodo,int ix, int iy, int iw, int ih, PImage ibase, PImage idown){
     ID = iID;
@@ -19,15 +20,19 @@ class ImageButtons extends Button {
     base = ibase;
     down = idown;
     currentimage = base;
+    currenttexto = "";
   }
   
-  ImageButtons(int iID,int iobjetos, int iposicion, PImage ibase, PImage idown){
+  ImageButtons(int iID,int iobjetos, int iposicion, PImage ibase, PImage idown, boolean idependencia, String itexto){
     ID = iID;
     objetos = iobjetos;
     modo = 3;
     posicion = iposicion;
     base = ibase;
     down = idown;
+    dependencia = idependencia;
+    texto = itexto;
+    currenttexto = "";
     
     float  k = anchoGlobal/(3*ibase.width);
     w = int(ibase.width*k);
@@ -75,6 +80,7 @@ class ImageButtons extends Button {
         break;
     }
     currentimage = base;
+    currenttexto = "";
   }
   
   void update() {
@@ -157,15 +163,37 @@ class ImageButtons extends Button {
         }
         break;
       case 3:    //Mostrar texto
-        if(last_activity==activity) {
-          if(pressed){
-            currentimage = down;  //evento activador
-            //reproducir sonido por ID
-            //a01.start();
+       if(last_activity==activity) {
+          if(dependencia == true){
+             if(posicion == 1 && bloqueado == false && pressed){
+              currentimage = down;  //evento activador
+              currenttexto = texto;
+              //reproducir sonido por ID
+            }
+            if(posicion != 1 && pressed){
+              bloqueado = false;
+              currentimage = down;  //evento activador
+              currenttexto = texto;
+              //reproducir sonido por ID
+            }
+          }
+          else{
+            if(pressed){
+              currentimage = down;  //evento activador
+              currenttexto = texto;
+              //reproducir sonido por ID
+              }
           }
         }
         else {
+          if (dependencia == true) {
+            bloqueado = true;
+          }
+          else {
+            bloqueado = false;
+          }
           currentimage = base;
+          currenttexto = "";
         }
         break;
     }
@@ -181,5 +209,9 @@ class ImageButtons extends Button {
   
   void display(){
     image(currentimage, x, y, w, h);
+    fill(0);
+    textFont(fontsubmenu,int(altoGlobal/15));
+    text(currenttexto,x,y);
+    
   }
 }
