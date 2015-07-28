@@ -210,8 +210,8 @@ class ImageButtons extends Button {
   void display(){
     image(currentimage, x, y, w, h);
     fill(0);
-    textFont(fontsubmenu,int(altoGlobal/15));
-    text(currenttexto,x,y);
+    textFont(fontsubMenu,int(altoGlobal/30));
+    text(currenttexto,x+anchoGlobal/8,y+altoGlobal/60);
     
   }
 }

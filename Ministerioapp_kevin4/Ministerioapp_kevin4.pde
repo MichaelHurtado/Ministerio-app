@@ -137,6 +137,12 @@ void draw(){
       break; 
     case 2:    // Submenú || Aymara || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -148,7 +154,12 @@ void draw(){
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
       background(255);
-      background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -160,6 +171,12 @@ void draw(){
       break;
     case 4:    // Submenú || Aymara || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=4;i<6;i++){
@@ -169,6 +186,12 @@ void draw(){
       break;
     case 5:    // Submenú || Aymara || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -180,6 +203,12 @@ void draw(){
       break;
     case 6:    // Submenú || Aymara || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -191,6 +220,12 @@ void draw(){
       break;
     case 7:    // Submenú || Aymara || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -202,6 +237,12 @@ void draw(){
       break;
     case 8:    // Submenú || Aymara || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -213,6 +254,12 @@ void draw(){
       break;
     case 9:    // Submenú || Aymara || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -222,6 +269,12 @@ void draw(){
       break;
     case 10:   // Submenú || Aymara || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -233,6 +286,12 @@ void draw(){
       break;
     case 11:   // Submenú || Aymara || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -244,6 +303,12 @@ void draw(){
       break;
     case 12:   // Submenú || Aymara || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -255,6 +320,12 @@ void draw(){
       break;
     case 13:   // Submenú || Aymara || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 4ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -266,6 +337,12 @@ void draw(){
       break;
     case 14:   // Submenú || Aymara || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 5ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -277,6 +354,12 @@ void draw(){
       break;
     case 15:   // Submenú || Aymara || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 6ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -288,6 +371,12 @@ void draw(){
       break;
     case 16:   // Submenú || Aymara || Verbo: Cantar || 7
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 7ma",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -391,6 +480,12 @@ void draw(){
       break;
     case 31:   // Submenú || Aymara || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -402,6 +497,12 @@ void draw(){
       break;
     case 32:   // Submenú || Aymara || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -413,6 +514,12 @@ void draw(){
       break;
     case 33:   // Submenú || Aymara || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -424,6 +531,12 @@ void draw(){
       break;
     case 34:   // Submenú || Aymara || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -435,6 +548,12 @@ void draw(){
       break;
     case 35:   // Submenú || Aymara || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -480,6 +599,12 @@ void draw(){
       break; 
     case 41:   // Submenú || Jaqaru || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -491,6 +616,12 @@ void draw(){
       break;
     case 42:   // Submenú || Jaqaru || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -502,6 +633,12 @@ void draw(){
       break;
     case 43:   // Submenú || Jaqaru || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=4;i<6;i++){
@@ -511,6 +648,12 @@ void draw(){
       break;
     case 44:   // Submenú || Jaqaru || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -522,6 +665,12 @@ void draw(){
       break;
     case 45:   // Submenú || Jaqaru || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -533,6 +682,12 @@ void draw(){
       break;
     case 46:   // Submenú || Jaqaru || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -544,6 +699,12 @@ void draw(){
       break;
     case 47:   // Submenú || Jaqaru || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -555,6 +716,12 @@ void draw(){
       break;
     case 48:   // Submenú || Jaqaru || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -564,6 +731,12 @@ void draw(){
       break;
     case 49:   // Submenú || Jaqaru || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -575,6 +748,12 @@ void draw(){
       break;
     case 50:   // Submenú || Jaqaru || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -586,6 +765,12 @@ void draw(){
       break;
     case 51:   // Submenú || Jaqaru || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -597,6 +782,12 @@ void draw(){
       break;
     case 52:   // Submenú || Jaqaru || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 4ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -608,6 +799,12 @@ void draw(){
       break;
     case 53:   // Submenú || Jaqaru || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 5ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -619,6 +816,12 @@ void draw(){
       break;
     case 54:   // Submenú || Jaqaru || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 6ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -630,6 +833,12 @@ void draw(){
       break;
     case 55:   // Submenú || Jaqaru || Verbo: Cantar || 7
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 7ma",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -733,6 +942,12 @@ void draw(){
       break;
     case 70:   // Submenú || Jaqaru || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -744,6 +959,12 @@ void draw(){
       break;
     case 71:   // Submenú || Jaqaru || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -755,6 +976,12 @@ void draw(){
       break;
     case 72:   // Submenú || Jaqaru || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -766,6 +993,12 @@ void draw(){
       break;
     case 73:   // Submenú || Jaqaru || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -777,6 +1010,12 @@ void draw(){
       break;
     case 74:   // Submenú || Jaqaru || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -822,6 +1061,12 @@ void draw(){
       break; 
     case 80:   // Submenú || Quechua || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -833,6 +1078,12 @@ void draw(){
       break;
     case 81:   // Submenú || Quechua || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -844,6 +1095,12 @@ void draw(){
       break;
     case 82:   // Submenú || Quechua || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=4;i<6;i++){
@@ -853,6 +1110,12 @@ void draw(){
       break;
     case 83:   // Submenú || Quechua || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -864,6 +1127,12 @@ void draw(){
       break;
     case 84:   // Submenú || Quechua || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -875,6 +1144,12 @@ void draw(){
       break;
     case 85:   // Submenú || Quechua || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -886,6 +1161,12 @@ void draw(){
       break;
     case 86:   // Submenú || Quechua || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -897,6 +1178,12 @@ void draw(){
       break;
     case 87:   // Submenú || Quechua || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -906,6 +1193,12 @@ void draw(){
       break;
     case 88:   // Submenú || Quechua || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -917,6 +1210,12 @@ void draw(){
       break;
     case 89:   // Submenú || Quechua || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -928,6 +1227,12 @@ void draw(){
       break;
     case 90:   // Submenú || Quechua || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -939,6 +1244,12 @@ void draw(){
       break;
     case 91:   // Submenú || Quechua || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 4ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -950,6 +1261,12 @@ void draw(){
       break;
     case 92:   // Submenú || Quechua || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 5ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -961,6 +1278,12 @@ void draw(){
       break;
     case 93:   // Submenú || Quechua || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 6ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -972,6 +1295,12 @@ void draw(){
       break;
     case 94:   // Submenú || Quechua || Verbo: Cantar || 7
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 7ma",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1075,6 +1404,12 @@ void draw(){
       break;
     case 109:  // Submenú || Quechua || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1086,6 +1421,12 @@ void draw(){
       break;
     case 110:  // Submenú || Quechua || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1097,6 +1438,12 @@ void draw(){
       break;
     case 111:  // Submenú || Quechua || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1108,6 +1455,12 @@ void draw(){
       break;
     case 112:  // Submenú || Quechua || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1119,6 +1472,12 @@ void draw(){
       break;
     case 113:  // Submenú || Quechua || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -1151,7 +1510,7 @@ void draw(){
       menuButtons[8].display();
       break;
     case 118:  // Submenú || Shipibo
-      background(238);
+      background(255);
       textFont(fontsubmenu,int(altoGlobal/5));
       fill(98);
       text(lenguas[3],2.5*int(anchoGlobal/9),3*int(altoGlobal/13));
@@ -1164,6 +1523,12 @@ void draw(){
       break; 
     case 119:  // Submenú || Shipibo || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1175,6 +1540,12 @@ void draw(){
       break;
     case 120:  // Submenú || Shipibo || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1186,6 +1557,12 @@ void draw(){
       break;
     case 121:  // Submenú || Shipibo || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=4;i<6;i++){
@@ -1195,6 +1572,12 @@ void draw(){
       break;
     case 122:  // Submenú || Shipibo || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1206,6 +1589,13 @@ void draw(){
       break;
     case 123:  // Submenú || Shipibo || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1217,6 +1607,12 @@ void draw(){
       break;
     case 124:  // Submenú || Shipibo || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1228,6 +1624,12 @@ void draw(){
       break;
     case 125:  // Submenú || Shipibo || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1239,6 +1641,12 @@ void draw(){
       break;
     case 126:  // Submenú || Shipibo || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -1248,6 +1656,12 @@ void draw(){
       break;
     case 127:  // Submenú || Shipibo || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1259,6 +1673,12 @@ void draw(){
       break;
     case 128:  // Submenú || Shipibo || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1270,6 +1690,12 @@ void draw(){
       break;
     case 129:  // Submenú || Shipibo || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1281,6 +1707,12 @@ void draw(){
       break;
     case 130:  // Submenú || Shipibo || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 4ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1292,6 +1724,12 @@ void draw(){
       break;
     case 131:  // Submenú || Shipibo || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 5ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1303,6 +1741,12 @@ void draw(){
       break;
     case 132:  // Submenú || Shipibo || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 6ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1314,6 +1758,12 @@ void draw(){
       break;
     case 133:  // Submenú || Shipibo || Verbo: Cantar || 7
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 7ma",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1417,6 +1867,12 @@ void draw(){
       break;
     case 148:  // Submenú || Shipibo || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1428,6 +1884,12 @@ void draw(){
       break;
     case 149:  // Submenú || Shipibo || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1439,6 +1901,12 @@ void draw(){
       break;
     case 150:  // Submenú || Shipibo || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1450,6 +1918,12 @@ void draw(){
       break;
     case 151:  // Submenú || Shipibo || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1461,6 +1935,12 @@ void draw(){
       break;
     case 152:  // Submenú || Shipibo || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -1506,6 +1986,12 @@ void draw(){
       break; 
     case 158:  // Submenú || Matsiguenka || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1517,6 +2003,12 @@ void draw(){
       break;
     case 159:  // Submenú || Matsiguenka || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1528,6 +2020,12 @@ void draw(){
       break;
     case 160:  // Submenú || Matsiguenka || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=4;i<6;i++){
@@ -1537,6 +2035,12 @@ void draw(){
       break;
     case 161:  // Submenú || Matsiguenka || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1548,6 +2052,12 @@ void draw(){
       break;
     case 162:  // Submenú || Matsiguenka || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1559,6 +2069,12 @@ void draw(){
       break;
     case 163:  // Submenú || Matsiguenka || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1570,6 +2086,12 @@ void draw(){
       break;
     case 164:  // Submenú || Matsiguenka || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1581,6 +2103,12 @@ void draw(){
       break;
     case 165:  // Submenú || Matsiguenka || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -1590,6 +2118,12 @@ void draw(){
       break;
     case 166:  // Submenú || Matsiguenka || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1601,6 +2135,12 @@ void draw(){
       break;
     case 167:  // Submenú || Matsiguenka || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1612,6 +2152,12 @@ void draw(){
       break;
     case 168:  // Submenú || Matsiguenka || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1623,6 +2169,12 @@ void draw(){
       break;
     case 169:  // Submenú || Matsiguenka || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 4ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1634,6 +2186,12 @@ void draw(){
       break;
     case 170:  // Submenú || Matsiguenka || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 5ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1645,6 +2203,12 @@ void draw(){
       break;
     case 171:  // Submenú || Matsiguenka || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 6ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1656,6 +2220,12 @@ void draw(){
       break;
     case 172:  // Submenú || Matsiguenka || Verbo: Cantar || 7
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 7ma",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1759,6 +2329,12 @@ void draw(){
       break;
     case 187:  // Submenú || Matsiguenka || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1770,6 +2346,12 @@ void draw(){
       break;
     case 188:  // Submenú || Matsiguenka || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1781,6 +2363,12 @@ void draw(){
       break;
     case 189:  // Submenú || Matsiguenka || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1792,6 +2380,12 @@ void draw(){
       break;
     case 190:  // Submenú || Matsiguenka || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1803,6 +2397,12 @@ void draw(){
       break;
     case 191:  // Submenú || Matsiguenka || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -1848,6 +2448,12 @@ void draw(){
       break; 
     case 197:  // Submenú || Yine || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1859,6 +2465,12 @@ void draw(){
       break;
     case 198:  // Submenú || Yine || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1870,6 +2482,12 @@ void draw(){
       break;
     case 199:  // Submenú || Yine || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=4;i<6;i++){
@@ -1879,6 +2497,12 @@ void draw(){
       break;
     case 200:  // Submenú || Yine || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1890,6 +2514,12 @@ void draw(){
       break;
     case 201:  // Submenú || Yine || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1901,6 +2531,12 @@ void draw(){
       break;
     case 202:  // Submenú || Yine || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1912,6 +2548,12 @@ void draw(){
       break;
     case 203:  // Submenú || Yine || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1923,6 +2565,12 @@ void draw(){
       break;
     case 204:  // Submenú || Yine || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo?",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){
@@ -1932,6 +2580,12 @@ void draw(){
       break;
     case 205:  // Submenú || Yine || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -1943,6 +2597,12 @@ void draw(){
       break;
     case 206:  // Submenú || Yine || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1954,6 +2614,12 @@ void draw(){
       break;
     case 207:  // Submenú || Yine || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1965,6 +2631,12 @@ void draw(){
       break;
     case 208:  // Submenú || Yine || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 4ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1976,6 +2648,12 @@ void draw(){
       break;
     case 209:  // Submenú || Yine || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 5ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1987,6 +2665,12 @@ void draw(){
       break;
     case 210:  // Submenú || Yine || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 6ta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1998,6 +2682,12 @@ void draw(){
       break;
     case 211:  // Submenú || Yine || Verbo: Cantar || 7
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 7ma",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -2101,6 +2791,12 @@ void draw(){
       break;
     case 226:  // Submenú || Yine || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
@@ -2112,6 +2808,12 @@ void draw(){
       break;
     case 227:  // Submenú || Yine || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -2123,6 +2825,12 @@ void draw(){
       break;
     case 228:  // Submenú || Yine || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -2134,6 +2842,12 @@ void draw(){
       break;
     case 229:  // Submenú || Yine || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -2145,6 +2859,12 @@ void draw(){
       break;
     case 230:  // Submenú || Yine || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=8;i<10;i++){

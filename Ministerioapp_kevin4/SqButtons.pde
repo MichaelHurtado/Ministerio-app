@@ -390,9 +390,9 @@ class SqButtons extends Button {
           if(j==0){
             for(int i=0;i<6;i++){
               if(i<3){
-                jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png");
+                jaqaru_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
               }
-              jaqaru_file[i]=loadImage(lenguas[1]+str(i)+".png");
+              jaqaru_file[i]=loadImage(lenguas[3]+str(i)+".png");
             }
             int i=0;
             contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"Ointa/Jowe");  //Saludandonos || 0 || Hola || Saludo
@@ -412,9 +412,9 @@ class SqButtons extends Button {
           if(j==0){
             for(int i=0;i<10;i++){
               if(i<3){
-                jaqaru_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
+                jaqaru_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
               }
-              jaqaru_file[i]=loadImage(lenguas[0]+str(i+6)+".png");
+              jaqaru_file[i]=loadImage(lenguas[3]+str(i+6)+".png");
             }
             int i=0;
             contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"¿Jawe janerin mia?");  //Conociéndonos || 6 || ¿Cuál es tu nombre?
@@ -438,9 +438,9 @@ class SqButtons extends Button {
           if(j==0){
             for(int i=0;i<18;i++){
               if(i<3){
-                jaqaru_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
+                jaqaru_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
               }
-              jaqaru_file[i]=loadImage(lenguas[0]+str(i+16)+".png");
+              jaqaru_file[i]=loadImage(lenguas[3]+str(i+16)+".png");
             }
             int i=0;
             contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Eara bewai");  //Estamos viviendo || 16 || Yo canto 
@@ -531,12 +531,12 @@ class SqButtons extends Button {
               jaqaru_file[i]=loadImage(lenguas[4]+str(i+6)+".png");
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Conociéndonos || 6 || ¿Cuál es tu nombre?
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"");  //Conociéndonos || 7 || Mi nombre es
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Conociéndonos || 8 || ¿Cuántos años tienes?
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"");  //Conociéndonos || 9 || Yo tengo
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Conociéndonos || 10 || ¿De dónde eres?
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"");  //Conociéndonos || 11 || Yo soy de 
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"¿Trara pipaita?");  //Conociéndonos || 6 || ¿Cuál es tu nombre?
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"Naro novairo onti ___");  //Conociéndonos || 7 || Mi nombre es
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"¿Akati pishiriagakotanaka?");  //Conociéndonos || 8 || ¿Cuántos años tienes?
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"Naro noshiriagakotanaka 10 shiriagarini");  //Conociéndonos || 9 || Yo tengo
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"¿Tyara pitimi?");  //Conociéndonos || 10 || ¿De dónde eres?
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"¿Tyara piponiaka?");  //Conociéndonos || 11 || Yo soy de 
             contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Conociéndonos || 12 || ¿Dónde vives? 
             contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"");  //Conociéndonos || 13 || Yo vivo en
             contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Conociéndonos || 14 || ¿A dónde estás yendo? 
@@ -557,24 +557,24 @@ class SqButtons extends Button {
               jaqaru_file[i]=loadImage(lenguas[4]+str(i+16)+".png");
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 16 || Yo canto 
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 17 || To canté
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 18 || Yo cantaré
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 19 || Tú cantas
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 20 || Tú cantaste
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 21 || Tú cantarás
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 22 || Él canta
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 23 || Él cantó
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 24 || Él cantará
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 25 || Ella canta
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 26 || Ella cantó
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 27 || Ella cantará
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 28 || Nosotros cantamos
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 29 || Nosotros cantamos
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 30 || Nosotros cantaremos
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 31 || Ustedes cantan
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 32 || Ustedes cantaron
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 33 || Ustedes cantarán
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Naro nomatikake");  //Estamos viviendo || 16 || Yo canto 
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Naro nomatikakiti");  //Estamos viviendo || 17 || To canté
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Naro nomatikakerookari");  //Estamos viviendo || 18 || Yo cantaré
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Viro pimatikake");  //Estamos viviendo || 19 || Tú cantas
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Viro pimatikakiti");  //Estamos viviendo || 20 || Tú cantaste
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Viro pimatikakerookari");  //Estamos viviendo || 21 || Tú cantarás
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Iriro imatikake");  //Estamos viviendo || 22 || Él canta
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Iriro imatikakiti");  //Estamos viviendo || 23 || Él cantó
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Iriro imatikakerookari");  //Estamos viviendo || 24 || Él cantará
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Irorori omatikake");  //Estamos viviendo || 25 || Ella canta
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Irorori omatikakiti");  //Estamos viviendo || 26 || Ella cantó
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Irorori omatikakerookari");  //Estamos viviendo || 27 || Ella cantará
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Naroegi nomatikaigake");  //Estamos viviendo || 28 || Nosotros cantamos
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Naroegi nomatikaigakiti");  //Estamos viviendo || 29 || Nosotros cantamos
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Naroegi nomatikaigakerookari");  //Estamos viviendo || 30 || Nosotros cantaremos
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Viroegi pimatikaigake");  //Estamos viviendo || 31 || Ustedes cantan
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Viroegi pimatikaigakiti");  //Estamos viviendo || 32 || Ustedes cantaron
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Viroegi pimatikaigakerookari");  //Estamos viviendo || 33 || Ustedes cantarán
             j=1;
           }
           //////////////////////////////////////////
@@ -591,16 +591,16 @@ class SqButtons extends Button {
               jaqaru_file[i]=loadImage(lenguas[1]+str(i+70)+".png");
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Árbol
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Río 
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[2],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Nubes
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[3],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Lluvia
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[4],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Casa
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[5],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Comida
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[6],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Sol
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[7],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Luna 
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[8],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Estrellas
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[9],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Fuego 
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[0],jaqaru_file[i++],false,"Inchato/inkenishi");  //Madre tierra || 34 || Árbol
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[1],jaqaru_file[i++],false,"Eni");  //Madre tierra || 35 || Río 
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[2],jaqaru_file[i++],false,"Menkori");  //Madre tierra || 34 || Nubes
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[3],jaqaru_file[i++],false,"Inkani");  //Madre tierra || 35 || Lluvia
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[4],jaqaru_file[i++],false,"Pankotsi");  //Madre tierra || 34 || Casa
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[5],jaqaru_file[i++],false,"Sekatsi");  //Madre tierra || 35 || Comida
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[6],jaqaru_file[i++],false,"Poreatsiri");  //Madre tierra || 34 || Sol
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[7],jaqaru_file[i++],false,"Kashiri");  //Madre tierra || 35 || Luna 
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[8],jaqaru_file[i++],false,"Impokiro/impokiropage");  //Madre tierra || 34 || Estrellas
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[9],jaqaru_file[i++],false,"Morekari");  //Madre tierra || 35 || Fuego 
             j=1;
           }
           //////////////////////////////////////////
@@ -618,17 +618,17 @@ class SqButtons extends Button {
           if(j==0){
             for(int i=0;i<6;i++){
               if(i<3){
-                jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png");
+                jaqaru_base[i]=loadImage(lenguas[5]+"_base"+str(i)+".png");
               }
-              jaqaru_file[i]=loadImage(lenguas[1]+str(i)+".png");
+              jaqaru_file[i]=loadImage(lenguas[5]+str(i)+".png");
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Saludandonos || 0 || Hola || Saludo
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"");  //Saludandonos || 1 || Hola || Respuesta
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Saludandonos || 2 || Chau || Despedida
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"");  //Saludandonos || 3 || Chau || Respuesta de despedida
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Saludandonos || 4 || Si
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Saludandonos || 5 || No
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"Galu/wiwi");  //Saludandonos || 0 || Hola || Saludo
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"Galu");  //Saludandonos || 1 || Hola || Respuesta
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"Nyatka");  //Saludandonos || 2 || Chau || Despedida
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],true,"Gowu");  //Saludandonos || 3 || Chau || Respuesta de despedida
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],false,"Gigi");  //Saludandonos || 4 || Si
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],false,"Gike");  //Saludandonos || 5 || No
             j=1;
           }
           ///////////////////////////////////////////
@@ -640,9 +640,9 @@ class SqButtons extends Button {
           if(j==0){
             for(int i=0;i<10;i++){
               if(i<3){
-                jaqaru_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
+                jaqaru_base[i]=loadImage(lenguas[5]+"_base"+str(i)+".png");
               }
-              jaqaru_file[i]=loadImage(lenguas[0]+str(i+6)+".png");
+              jaqaru_file[i]=loadImage(lenguas[5]+str(i+6)+".png");
             }
             int i=0;
             contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],true,"");  //Conociéndonos || 6 || ¿Cuál es tu nombre?
@@ -666,29 +666,29 @@ class SqButtons extends Button {
           if(j==0){
             for(int i=0;i<18;i++){
               if(i<3){
-                jaqaru_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
+                jaqaru_base[i]=loadImage(lenguas[5]+"_base"+str(i)+".png");
               }
-              jaqaru_file[i]=loadImage(lenguas[0]+str(i+16)+".png");
+              jaqaru_file[i]=loadImage(lenguas[5]+str(i+16)+".png");
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 16 || Yo canto 
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 17 || To canté
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 18 || Yo cantaré
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 19 || Tú cantas
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 20 || Tú cantaste
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 21 || Tú cantarás
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 22 || Él canta
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 23 || Él cantó
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 24 || Él cantará
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 25 || Ella canta
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 26 || Ella cantó
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 27 || Ella cantará
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 28 || Nosotros cantamos
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 29 || Nosotros cantamos
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 30 || Nosotros cantaremos
-            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Estamos viviendo || 31 || Ustedes cantan
-            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Estamos viviendo || 32 || Ustedes cantaron
-            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"");  //Estamos viviendo || 33 || Ustedes cantarán
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Nshikalewata");  //Estamos viviendo || 16 || Yo canto 
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Nshikalwanata");  //Estamos viviendo || 17 || To canté
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Nshikalwatanu");  //Estamos viviendo || 18 || Yo cantaré
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Pshikalwatanu");  //Estamos viviendo || 19 || Tú cantas
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Pshikalewanata");  //Estamos viviendo || 20 || Tú cantaste
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Pshikalewatanu");  //Estamos viviendo || 21 || Tú cantarás
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Wale shikalwata");  //Estamos viviendo || 22 || Él canta
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Wale shikalewatatka");  //Estamos viviendo || 23 || Él cantó
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Wale shikalewatanu");  //Estamos viviendo || 24 || Él cantará
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Wala shikalwata");  //Estamos viviendo || 25 || Ella canta
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Wala shikalewanata");  //Estamos viviendo || 26 || Ella cantó
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Wala shikalewatanu");  //Estamos viviendo || 27 || Ella cantará
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Wixa shikalwata");  //Estamos viviendo || 28 || Nosotros cantamos
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Wixa shikalwanata");  //Estamos viviendo || 29 || Nosotros cantamos
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Wixa shikalewatanu");  //Estamos viviendo || 30 || Nosotros cantaremos
+            contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++],false,"Gixa shikalewata");  //Estamos viviendo || 31 || Ustedes cantan
+            contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++],false,"Gixa shikalewanata");  //Estamos viviendo || 32 || Ustedes cantaron
+            contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++],false,"Gixa shikalewatanu");  //Estamos viviendo || 33 || Ustedes cantarán
             j=1;
           }
           //////////////////////////////////////////
@@ -705,16 +705,16 @@ class SqButtons extends Button {
               jaqaru_file[i]=loadImage(lenguas[1]+str(i+70)+".png");
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[0],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Árbol
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[1],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Río 
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[2],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Nubes
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[3],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Lluvia
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[4],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Casa
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[5],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Comida
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[6],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Sol
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[7],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Luna 
-            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[8],jaqaru_file[i++],false,"");  //Madre tierra || 34 || Estrellas
-            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[9],jaqaru_file[i++],false,"");  //Madre tierra || 35 || Fuego 
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[0],jaqaru_file[i++],false,"Kashegiru");  //Madre tierra || 34 || Árbol
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[1],jaqaru_file[i++],false,"Tsruru");  //Madre tierra || 35 || Río 
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[2],jaqaru_file[i++],false,"Kamkolu");  //Madre tierra || 34 || Nubes
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[3],jaqaru_file[i++],false,"Gina");  //Madre tierra || 35 || Lluvia
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[4],jaqaru_file[i++],false,"Panchi");  //Madre tierra || 34 || Casa
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[5],jaqaru_file[i++],false,"Niikaluru");  //Madre tierra || 35 || Comida
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[6],jaqaru_file[i++],false,"Tkachi");  //Madre tierra || 34 || Sol
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[7],jaqaru_file[i++],false,"Ksuru");  //Madre tierra || 35 || Luna 
+            contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[8],jaqaru_file[i++],false,"Katagiri");  //Madre tierra || 34 || Estrellas
+            contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[9],jaqaru_file[i++],false,"Katalu");  //Madre tierra || 35 || Fuego 
             j=1;
           }
           //////////////////////////////////////////
