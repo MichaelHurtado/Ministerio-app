@@ -60,14 +60,23 @@ class SqButtons extends Button {
               //shipibo_file[i]=loadImage(lenguas[3]+str(i)+".png");
               //matsiguenka_file[i]=loadImage(lenguas[4]+str(i)+".png");
               //yine_file[i]=loadImage(lenguas[5]+str(i)+".png");
+              p1 = new APMediaPlayer(this); 
+              p1.setMediaFile("a01.mp3"); 
+              p1.setLooping(false); 
+              p1.setVolume(1.0, 1.0);
+              p2 = new APMediaPlayer(this); 
+              p2.setMediaFile("a02.mp3"); 
+              p2.setLooping(false); 
+              p2.setVolume(1.0, 1.0);
+              
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 0 || Hola || Saludo
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 1 || Hola || Respuesta
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 2 || Chau || Despedida
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 3 || Chau || Respuesta de despedida
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 4 || Si
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 5 || No
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],p1);  //Saludandonos || 0 || Hola || Saludo
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],p2);  //Saludandonos || 1 || Hola || Respuesta
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],p1);  //Saludandonos || 2 || Chau || Despedida
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],p2);  //Saludandonos || 3 || Chau || Respuesta de despedida
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],p1);  //Saludandonos || 4 || Si
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],p1);  //Saludandonos || 5 || No
             j=1;
           }
           //////////////////////////////////////////
@@ -109,12 +118,12 @@ class SqButtons extends Button {
               //yine_file[i]=loadImage(lenguas[5]+str(i)+".png");
             }
             int i=0;
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 0 || Hola || Saludo
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 1 || Hola || Respuesta
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 2 || Chau || Despedida
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 3 || Chau || Respuesta de despedida
-            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 4 || Si
-            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 5 || No
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],p1);  //Saludandonos || 0 || Hola || Saludo
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],p1);  //Saludandonos || 1 || Hola || Respuesta
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],p1);  //Saludandonos || 2 || Chau || Despedida
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],p1);  //Saludandonos || 3 || Chau || Respuesta de despedida
+            contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++],p1);  //Saludandonos || 4 || Si
+            contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++],p1);  //Saludandonos || 5 || No
             j=1;
           }
           ///////////////////////////////////////////

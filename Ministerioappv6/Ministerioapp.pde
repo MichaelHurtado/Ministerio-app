@@ -6,9 +6,7 @@ lengua3=shipibo
 lengua4=matshiguenka
 lengua5=yine
 */
-//import apwidgets.*; //libreria audio
-//APMediaPlayer a01; //objeto de audio
-int j;
+
 PFont fontMenu,fontsubMenu,fontsubmenu;
 PImage imagenMin;
 PImage imagenIntro;
@@ -22,22 +20,22 @@ float anchoGlobal;
 float altoGlobal;
 float beta;
 
-int n=6, m=34;
+int n=6, m=44;
 int activity = 0, last_activity = 0;
 
 PImage[] file = new PImage[n];
 PImage[] aymara_file = new PImage[m];  //Aymara
-PImage[] aymara_base = new PImage[3];
+PImage[] aymara_base = new PImage[13];
 PImage[] jaqaru_file = new PImage[m];  //Jaqaru
-PImage[] jaqaru_base = new PImage[3];
+PImage[] jaqaru_base = new PImage[13];
 PImage[] quechua_file = new PImage[m];  //Quechua
-PImage[] quechua_base = new PImage[3];
+PImage[] quechua_base = new PImage[13];
 PImage[] shipibo_file = new PImage[m];  //Shipibo
-PImage[] shipibo_base = new PImage[3]; 
+PImage[] shipibo_base = new PImage[13]; 
 PImage[] matsiguenka_file = new PImage[m];  //Matsiguenka
-PImage[] matsiguenka_base = new PImage[3];
+PImage[] matsiguenka_base = new PImage[13];
 PImage[] yine_file = new PImage[m];  //Yine
-PImage[] yine_base = new PImage[3];
+PImage[] yine_base = new PImage[13];
 
 ImageButtons[] menuButtons = new ImageButtons[n+4];
 ImageButtons[] contenidoButtons = new ImageButtons[m*6];
@@ -57,11 +55,12 @@ String[][] SUBMENU = {{"Aruntasipxañani","Uñt’asipxañani","Jakasisipxktanwa
 
 void setup(){
   size(displayWidth,displayHeight);
+  
   anchoGlobal = displayWidth;
   altoGlobal = displayHeight;
-//  size(720,480);
-//  anchoGlobal = 720;
-//  altoGlobal = 480;
+  //size(720,480);
+  //anchoGlobal = 720;
+  //altoGlobal = 480;
   imagenMin=loadImage("mincultura.png");
   imagenIntro=loadImage("nombre.png");
   orientation(LANDSCAPE);
@@ -79,10 +78,10 @@ void setup(){
     }
   }
   
-  /*for(int i=0;i<m;i++){
-    if(i<3){
+  for(int i=0;i<m-10;i++){
+    if(i<13){
       //aymara_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
-      jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png");
+      jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png"); /**/
       //quechua_base[i]=loadImage(lenguas[2]+"_base"+str(i)+".png");
       //shipibo_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
       //matsiguenka_base[i]=loadImage(lenguas[4]+"_base"+str(i)+".png");
@@ -94,18 +93,21 @@ void setup(){
     //shipibo_file[i]=loadImage(lenguas[3]+str(i)+".png");
     //matsiguenka_file[i]=loadImage(lenguas[4]+str(i)+".png");
     //yine_file[i]=loadImage(lenguas[5]+str(i)+".png");
-  }*/
+  }
+  for(int i=34;i<44;i++){
+    jaqaru_file[i]=loadImage(lenguas[1]+str(i+36)+".png");
+  }
   
-  //int i=0;
+  int i=0;
 //  //Imagenes Aymara
   //Imagenes Jaqaru
-  /*contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 0 || Hola || Saludo
+  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 0 || Hola || Saludo
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 1 || Hola || Respuesta
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 2 || Chau || Despedida
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 3 || Chau || Respuesta de despedida
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 4 || Si
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 5 || No*/
-  /*contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 6 || ¿Cuál es tu nombre?
+  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 5 || No
+  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 6 || ¿Cuál es tu nombre?
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 7 || Mi nombre es
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 8 || ¿Cuántos años tienes?
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 9 || Yo tengo
@@ -114,7 +116,7 @@ void setup(){
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 12 || ¿Dónde vives? 
   contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 13 || Yo vivo en
   contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 14 || ¿A dónde estás yendo? 
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 15 || Estoy yendo a
+  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 15 || Estoy yendo a*/
   contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 16 || Yo canto 
   contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 17 || To canté
   contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 18 || Yo cantaré
@@ -133,7 +135,17 @@ void setup(){
   contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 31 || Ustedes cantan
   contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 32 || Ustedes cantaron
   contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 33 || Ustedes cantarán
-  */
+  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[3],jaqaru_file[i++]);  //Madre tierra || 34 || Árbol
+  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[4],jaqaru_file[i++]);  //Madre tierra || 35 || Río 
+  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[5],jaqaru_file[i++]);  //Madre tierra || 34 || Nubes
+  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[6],jaqaru_file[i++]);  //Madre tierra || 35 || Lluvia
+  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[7],jaqaru_file[i++]);  //Madre tierra || 34 || Casa
+  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[8],jaqaru_file[i++]);  //Madre tierra || 35 || Comida
+  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[9],jaqaru_file[i++]);  //Madre tierra || 34 || Sol
+  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[10],jaqaru_file[i++]);  //Madre tierra || 35 || Luna 
+  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[11],jaqaru_file[i++]);  //Madre tierra || 34 || Estrellas
+  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[12],jaqaru_file[i++]);  //Madre tierra || 35 || Fuego 
+  
   
   imagenRight=loadImage("right.png");
   beta = imagenRight.height/altoGlobal;
@@ -147,14 +159,11 @@ void setup(){
   fontsubMenu = loadFont("CourierNew36.vlw");
   fontsubmenu = loadFont("Haettenschweiler-100.vlw");
   //agregar otro 
-
-  //sonido
-  //saludandonosa();
 }
 
 void draw(){
   switch(activity){
-    case 0:    // Menú principial ||Jaqaru Aymara Matsiguenka Quechua Shipibo Yine
+    case 0:    // Menú principial ||Aymara Jaqaru Quechua Shipibo Matsiguenka Yine
         //Función de entrada
         if (intro) {
             if(millis()<5000){
@@ -205,13 +214,12 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=0;i<2;i++){
+     for(int i=0;i<2;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
-      }
+     }
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
-      background(255);
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
@@ -237,12 +245,20 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 6:    // Submenú || Aymara || Conociendonos || 2
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 7:    // Submenú || Aymara || Conociendonos || 3
@@ -251,6 +267,10 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=10;i<12;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 8:    // Submenú || Aymara || Conociendonos || 4
       background(255);
@@ -258,17 +278,29 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=12;i<14;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 9:    // Submenú || Aymara || Conociendonos || 5
       background(255);
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=14;i<16;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 10:   // Submenú || Aymara || Verbo: Cantar || 1
       background(255);
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=16;i<19;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 11:   // Submenú || Aymara || Verbo: Cantar || 2
@@ -277,12 +309,20 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=19;i<22;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 12:   // Submenú || Aymara || Verbo: Cantar || 3
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=22;i<25;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 13:   // Submenú || Aymara || Verbo: Cantar || 4
@@ -291,6 +331,10 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=25;i<28;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 14:   // Submenú || Aymara || Verbo: Cantar || 5
       background(255);
@@ -298,12 +342,20 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=28;i<31;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 15:   // Submenú || Aymara || Verbo: Cantar || 6
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=31;i<34;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 16:   // Submenú || Aymara || Verbo: Cantar || 7
@@ -415,12 +467,20 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=34;i<36;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 32:   // Submenú || Aymara || Madre tierra || 2
       background(255);
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=36;i<38;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 33:   // Submenú || Aymara || Madre tierra || 3
@@ -429,6 +489,10 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=38;i<40;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 34:   // Submenú || Aymara || Madre tierra || 4
       background(255);
@@ -436,11 +500,19 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=40;i<42;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 35:   // Submenú || Aymara || Madre tierra || 5
       background(255);
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=42;i<44;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 36:   // Submenú || Aymara || Animales || 1
       background(255);
@@ -484,10 +556,6 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
-      for(int i=0;i<2;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 42:   // Submenú || Jaqaru || Saludándonos || 2
       background(255);
@@ -495,19 +563,11 @@ void draw(){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=2;i<4;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 43:   // Submenú || Jaqaru || Saludándonos || 3
       background(255);
       menuButtons[6].update();
       menuButtons[6].display();
-      for(int i=4;i<6;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
       break;
     case 44:   // Submenú || Jaqaru || Conociendonos || 1
       background(255);
@@ -1814,19 +1874,3 @@ void draw(){
       break;
   }
 }
-
-//audio
-/*void saludandonosa(){
-  a01 = new APMediaPlayer(this); //create new APMediaPlayer
-  a01.setMediaFile("a01.mp3"); //set the file (files are in data folder)
-  a01.setLooping(false); //restart playback end reached
-  a01.setVolume(1.0, 1.0);  
-}
-public void onDestroy() {
-
-  super.onDestroy(); //call onDestroy on super class
-  if(a01!=null) { //must be checked because or else crash when return from landscape mode
-    a01.release(); //release the player
-
-  }
-}*/

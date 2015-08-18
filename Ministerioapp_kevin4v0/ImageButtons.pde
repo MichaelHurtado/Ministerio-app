@@ -6,6 +6,7 @@ class ImageButtons extends Button {
   int posicion;
   int modo;
   int ID;
+  APMediaPlayer audio;
   //boolean pageact;
   //boolean pagenew;
 
@@ -21,13 +22,14 @@ class ImageButtons extends Button {
     currentimage = base;
   }
   
-  ImageButtons(int iID,int iobjetos, int iposicion, PImage ibase, PImage idown){
+  ImageButtons(int iID,int iobjetos, int iposicion, PImage ibase, PImage idown, APMediaPlayer iaudio){
     ID = iID;
     objetos = iobjetos;
     modo = 3;
     posicion = iposicion;
     base = ibase;
     down = idown;
+    audio = iaudio;
     
     float  k = anchoGlobal/(3*ibase.width);
     w = int(ibase.width*k);
@@ -146,6 +148,7 @@ class ImageButtons extends Button {
             currentimage = down;  //evento activador
             //reproducir sonido por ID
             //a01.start();
+            audio.start();
           }
         }
         else {

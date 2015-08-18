@@ -6,36 +6,33 @@ lengua3=shipibo
 lengua4=matshiguenka
 lengua5=yine
 */
+import apwidgets.*; //libreria audio
+APMediaPlayer p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18;
 
-PFont fontMenu,fontsubMenu,fontsubmenu;
+int j;
+PFont fontMenu,fontsubMenu,fontsubmenu,fontcancion;
 PImage imagenMin;
 PImage imagenIntro;
 PImage imagenRight;
 PImage imagenLeft;
 
 String[] lenguas = {"Aymara","Jaqaru","Quechua","Shipibo","Matsiguenka","Yine"}; 
+
 boolean intro = true;
 
 float anchoGlobal;
 float altoGlobal;
 float beta;
 
-int n=6, m=44;
+int n=6, m=34;
 int activity = 0, last_activity = 0;
+boolean bloqueado = false;
 
 PImage[] file = new PImage[n];
-PImage[] aymara_file = new PImage[m];  //Aymara
-PImage[] aymara_base = new PImage[13];
+
 PImage[] jaqaru_file = new PImage[m];  //Jaqaru
-PImage[] jaqaru_base = new PImage[13];
-PImage[] quechua_file = new PImage[m];  //Quechua
-PImage[] quechua_base = new PImage[13];
-PImage[] shipibo_file = new PImage[m];  //Shipibo
-PImage[] shipibo_base = new PImage[13]; 
-PImage[] matsiguenka_file = new PImage[m];  //Matsiguenka
-PImage[] matsiguenka_base = new PImage[13];
-PImage[] yine_file = new PImage[m];  //Yine
-PImage[] yine_base = new PImage[13];
+PImage[] jaqaru_base = new PImage[10];
+
 
 ImageButtons[] menuButtons = new ImageButtons[n+4];
 ImageButtons[] contenidoButtons = new ImageButtons[m*6];
@@ -55,12 +52,28 @@ String[][] SUBMENU = {{"Aruntasipxañani","Uñt’asipxañani","Jakasisipxktanwa
 
 void setup(){
   size(displayWidth,displayHeight);
-  
   anchoGlobal = displayWidth;
   altoGlobal = displayHeight;
-  //size(720,480);
-  //anchoGlobal = 720;
-  //altoGlobal = 480;
+  
+  p1 = new APMediaPlayer(this);
+  p2 = new APMediaPlayer(this);
+  p3 = new APMediaPlayer(this);
+  p4 = new APMediaPlayer(this);
+  p5 = new APMediaPlayer(this);
+  p6 = new APMediaPlayer(this);
+  p7 = new APMediaPlayer(this);
+  p8 = new APMediaPlayer(this);
+  p9 = new APMediaPlayer(this);
+  p10 = new APMediaPlayer(this);
+  p11 = new APMediaPlayer(this);
+  p12 = new APMediaPlayer(this);
+  p13 = new APMediaPlayer(this);
+  p14 = new APMediaPlayer(this);
+  p15 = new APMediaPlayer(this);
+  p16 = new APMediaPlayer(this);
+  p17 = new APMediaPlayer(this);
+  p18 = new APMediaPlayer(this);    
+
   imagenMin=loadImage("mincultura.png");
   imagenIntro=loadImage("nombre.png");
   orientation(LANDSCAPE);
@@ -78,74 +91,6 @@ void setup(){
     }
   }
   
-  for(int i=0;i<m-10;i++){
-    if(i<13){
-      //aymara_base[i]=loadImage(lenguas[0]+"_base"+str(i)+".png");
-      jaqaru_base[i]=loadImage(lenguas[1]+"_base"+str(i)+".png"); /**/
-      //quechua_base[i]=loadImage(lenguas[2]+"_base"+str(i)+".png");
-      //shipibo_base[i]=loadImage(lenguas[3]+"_base"+str(i)+".png");
-      //matsiguenka_base[i]=loadImage(lenguas[4]+"_base"+str(i)+".png");
-      //yine_base[i]=loadImage(lenguas[5]+"_base"+str(i)+".png");
-    }
-    //aymara_file[i]=loadImage(lenguas[0]+str(i)+".png");
-    jaqaru_file[i]=loadImage(lenguas[1]+str(i)+".png");
-    //quechua_file[i]=loadImage(lenguas[2]+str(i)+".png");
-    //shipibo_file[i]=loadImage(lenguas[3]+str(i)+".png");
-    //matsiguenka_file[i]=loadImage(lenguas[4]+str(i)+".png");
-    //yine_file[i]=loadImage(lenguas[5]+str(i)+".png");
-  }
-  for(int i=34;i<44;i++){
-    jaqaru_file[i]=loadImage(lenguas[1]+str(i+36)+".png");
-  }
-  
-  int i=0;
-//  //Imagenes Aymara
-  //Imagenes Jaqaru
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 0 || Hola || Saludo
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 1 || Hola || Respuesta
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 2 || Chau || Despedida
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 3 || Chau || Respuesta de despedida
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Saludandonos || 4 || Si
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Saludandonos || 5 || No
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 6 || ¿Cuál es tu nombre?
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 7 || Mi nombre es
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 8 || ¿Cuántos años tienes?
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 9 || Yo tengo
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 10 || ¿De dónde eres?
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 11 || Yo soy de 
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 12 || ¿Dónde vives? 
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 13 || Yo vivo en
-  contenidoButtons[i] = new ImageButtons(i,0,0,jaqaru_base[0],jaqaru_file[i++]);  //Conociéndonos || 14 || ¿A dónde estás yendo? 
-  contenidoButtons[i] = new ImageButtons(i,0,1,jaqaru_base[1],jaqaru_file[i++]);  //Conociéndonos || 15 || Estoy yendo a*/
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 16 || Yo canto 
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 17 || To canté
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 18 || Yo cantaré
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 19 || Tú cantas
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 20 || Tú cantaste
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 21 || Tú cantarás
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 22 || Él canta
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 23 || Él cantó
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 24 || Él cantará
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 25 || Ella canta
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 26 || Ella cantó
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 27 || Ella cantará
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 28 || Nosotros cantamos
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 29 || Nosotros cantamos
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 30 || Nosotros cantaremos
-  contenidoButtons[i] = new ImageButtons(i,1,0,jaqaru_base[0],jaqaru_file[i++]);  //Estamos viviendo || 31 || Ustedes cantan
-  contenidoButtons[i] = new ImageButtons(i,1,1,jaqaru_base[1],jaqaru_file[i++]);  //Estamos viviendo || 32 || Ustedes cantaron
-  contenidoButtons[i] = new ImageButtons(i,1,2,jaqaru_base[2],jaqaru_file[i++]);  //Estamos viviendo || 33 || Ustedes cantarán
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[3],jaqaru_file[i++]);  //Madre tierra || 34 || Árbol
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[4],jaqaru_file[i++]);  //Madre tierra || 35 || Río 
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[5],jaqaru_file[i++]);  //Madre tierra || 34 || Nubes
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[6],jaqaru_file[i++]);  //Madre tierra || 35 || Lluvia
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[7],jaqaru_file[i++]);  //Madre tierra || 34 || Casa
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[8],jaqaru_file[i++]);  //Madre tierra || 35 || Comida
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[9],jaqaru_file[i++]);  //Madre tierra || 34 || Sol
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[10],jaqaru_file[i++]);  //Madre tierra || 35 || Luna 
-  contenidoButtons[i] = new ImageButtons(i,2,0,jaqaru_base[11],jaqaru_file[i++]);  //Madre tierra || 34 || Estrellas
-  contenidoButtons[i] = new ImageButtons(i,2,1,jaqaru_base[12],jaqaru_file[i++]);  //Madre tierra || 35 || Fuego 
-  
   
   imagenRight=loadImage("right.png");
   beta = imagenRight.height/altoGlobal;
@@ -158,12 +103,16 @@ void setup(){
   fontMenu = loadFont("Haettenschweiler-48.vlw");
   fontsubMenu = loadFont("CourierNew36.vlw");
   fontsubmenu = loadFont("Haettenschweiler-100.vlw");
+  fontcancion = loadFont("ComicSansMS-36.vlw");
   //agregar otro 
+
+  //sonido
+  //saludandonosa();
 }
 
 void draw(){
   switch(activity){
-    case 0:    // Menú principial ||Aymara Jaqaru Quechua Shipibo Matsiguenka Yine
+    case 0:    // Menú principial ||Jaqaru Aymara Matsiguenka Quechua Shipibo Yine
         //Función de entrada
         if (intro) {
             if(millis()<5000){
@@ -177,6 +126,13 @@ void draw(){
                 imageMode(CENTER);
                 image(imagenIntro,anchoGlobal/2,altoGlobal/2,imagenIntro.width*anchoGlobal/1360,imagenIntro.height*anchoGlobal/1360);
                 imageMode(CORNER);
+                
+                j=0;
+                if(j==0){
+                  imagenMin=loadImage("letraslema.png");
+                  j=1;
+                }
+                
             }
             else { intro = false; }
         }
@@ -186,6 +142,9 @@ void draw(){
           textFont(fontMenu,int(altoGlobal/16));
           fill(255);
           textAlign(CENTER);
+          imageMode(CENTER);
+          image(imagenMin,anchoGlobal/2,altoGlobal/4,imagenMin.width*anchoGlobal/800,imagenMin.height*anchoGlobal/800);
+          imageMode(CORNER);
           //textSize(altoGlobal/16);
           for(int i=0;i<6;i++){
             text(lenguas[i],factorDesp[i]*int(((3+2*i)*anchoGlobal/16)-(alfa[i]*file[i].width)/2),int((1.1*(altoGlobal/2)+(alfa[1]*file[1].height)/2)));  
@@ -210,17 +169,29 @@ void draw(){
       break; 
     case 2:    // Submenú || Aymara || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-     for(int i=0;i<2;i++){
+      for(int i=0;i<2;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
-     }
+      }
       break;
     case 3:    // Submenú || Aymara || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -232,6 +203,12 @@ void draw(){
       break;
     case 4:    // Submenú || Aymara || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
       for(int i=4;i<6;i++){
@@ -241,7 +218,64 @@ void draw(){
       break;
     case 5:    // Submenú || Aymara || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre? / Mi nombre es _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
+        menuButtons[i].update();
+        menuButtons[i].display();
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
+      break;
+    case 6:    // Submenú || Aymara || Conociendonos || 2
+      background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes? / Yo tengo _ años",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      for(int i=6;i<=7;i++){
+        menuButtons[i].update();
+        menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
+      break;
+    case 7:    // Submenú || Aymara || Conociendonos || 3
+      background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres? / Yo soy de _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      for(int i=6;i<=7;i++){
+        menuButtons[i].update();
+        menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
+      break;
+    case 8:    // Submenú || Aymara || Conociendonos || 4
+      background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives? / Yo vivo en _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
@@ -250,116 +284,126 @@ void draw(){
        contenidoButtons[i].update();
       }
       break;
-    case 6:    // Submenú || Aymara || Conociendonos || 2
-      background(255);
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
-      for(int i=8;i<10;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
-      break;
-    case 7:    // Submenú || Aymara || Conociendonos || 3
-      background(255);
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
-      for(int i=10;i<12;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
-      break;
-    case 8:    // Submenú || Aymara || Conociendonos || 4
-      background(255);
-      for(int i=6;i<=7;i++){
-        menuButtons[i].update();
-        menuButtons[i].display();
-      }
-      for(int i=12;i<14;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
-      }
-      break;
     case 9:    // Submenú || Aymara || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo? / Estoy yendo a _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
-      for(int i=14;i<16;i++){
+      for(int i=8;i<10;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
       }
       break;
     case 10:   // Submenú || Aymara || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
-      for(int i=16;i<19;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
+      for(int i=0;i<3;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 11:   // Submenú || Aymara || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=19;i<22;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
+      for(int i=3;i<6;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 12:   // Submenú || Aymara || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=22;i<25;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
+      for(int i=6;i<9;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 13:   // Submenú || Aymara || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=25;i<28;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
+      for(int i=9;i<12;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 14:   // Submenú || Aymara || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=28;i<31;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
+      for(int i=12;i<15;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 15:   // Submenú || Aymara || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=31;i<34;i++){
-       contenidoButtons[i].display();
-       contenidoButtons[i].update();
+      for(int i=15;i<18;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 16:   // Submenú || Aymara || Verbo: Cantar || 7
       background(255);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -463,53 +507,83 @@ void draw(){
       break;
     case 31:   // Submenú || Aymara || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
-      for(int i=34;i<36;i++){
+      for(int i=0;i<2;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
       }
       break;
     case 32:   // Submenú || Aymara || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=36;i<38;i++){
+      for(int i=2;i<4;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
       }
       break;
     case 33:   // Submenú || Aymara || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=38;i<40;i++){
+      for(int i=4;i<6;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
       }
       break;
     case 34:   // Submenú || Aymara || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
-      for(int i=40;i<42;i++){
+      for(int i=6;i<8;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
       }
       break;
     case 35:   // Submenú || Aymara || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
-      for(int i=42;i<44;i++){
+      for(int i=8;i<10;i++){
        contenidoButtons[i].display();
        contenidoButtons[i].update();
       }
@@ -535,6 +609,26 @@ void draw(){
       break;
     case 39:   // Submenú || Aymara || Cantemos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Cantemos",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      textFont(fontcancion,int(altoGlobal/30));
+      fill(153,51,102);
+      text("Suni payita mantanthaya", width/2, altoGlobal/4.5);
+      text("Aqarapita jiskhullani",width/2, altoGlobal/4.5 + altoGlobal/20);
+      text("Suni payita mantanthaya",width/2, altoGlobal/4.5 + 2*altoGlobal/20);
+      text("Chhullunkhayata jiskhullani", width/2,  altoGlobal/4.5 + 3*altoGlobal/20);
+      text("Jumaru muniriwa mantanthaya",width/2, altoGlobal/4.5 + 4*altoGlobal/20);
+      text("Jumaru waylluriwa saraqanthaya",width/2, altoGlobal/4.5 + 5*altoGlobal/20);
+      text("Inacha munitani sasina",width/2, altoGlobal/4.5 + 6*altoGlobal/20);
+      text("Inacha wayllutani sasina",width/2, altoGlobal/4.5 + 7*altoGlobal/20);
+      text("Jumaru waylluriwa saraqanthaya",width/2, altoGlobal/4.5 + 8*altoGlobal/20);
+      text("T’ijxarakisma kullakaya",width/2, altoGlobal/4.5 + 9*altoGlobal/20);
+      text("Chhaqxaralisma kullakaya",width/2, altoGlobal/4.5 + 10*altoGlobal/20);
+      
       menuButtons[8].update();
       menuButtons[8].display();
       break;
@@ -552,100 +646,241 @@ void draw(){
       break; 
     case 41:   // Submenú || Jaqaru || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 42:   // Submenú || Jaqaru || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 43:   // Submenú || Jaqaru || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 44:   // Submenú || Jaqaru || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre? / Mi nombre es _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 45:   // Submenú || Jaqaru || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes? / Yo tengo _ años",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 46:   // Submenú || Jaqaru || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres? / Yo soy de _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 47:   // Submenú || Jaqaru || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives? / Yo vivo en _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 48:   // Submenú || Jaqaru || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo? / Estoy yendo a _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 49:   // Submenú || Jaqaru || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<3;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
+      }
       break;
     case 50:   // Submenú || Jaqaru || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=3;i<6;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 51:   // Submenú || Jaqaru || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<9;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 52:   // Submenú || Jaqaru || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=9;i<12;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 53:   // Submenú || Jaqaru || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=12;i<15;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
       }
       break;
     case 54:   // Submenú || Jaqaru || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=15;i<18;i++){
+        contenidoButtons[i].display();
+        contenidoButtons[i].update();
+      }
       break;
     case 55:   // Submenú || Jaqaru || Verbo: Cantar || 7
       background(255);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -749,36 +984,86 @@ void draw(){
       break;
     case 70:   // Submenú || Jaqaru || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 71:   // Submenú || Jaqaru || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 72:   // Submenú || Jaqaru || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 73:   // Submenú || Jaqaru || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 74:   // Submenú || Jaqaru || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 75:   // Submenú || Jaqaru || Animales || 1
       background(255);
@@ -801,6 +1086,31 @@ void draw(){
       break;
     case 78:   // Submenú || Jaqaru || Cantemos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Cantemos",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      textFont(fontcancion,int(altoGlobal/30));
+      fill(153,51,102);
+      text("T'akcham maqmata", width/2, altoGlobal/5);
+      text("Ishkasw upaq akankitxi",width/2, altoGlobal/5 + altoGlobal/25);
+      text("Jatzach jatzmanqa",width/2, altoGlobal/5 + 2*altoGlobal/25);
+      text("¿Upaq ujtqanitxi?", width/2,  altoGlobal/5 + 3*altoGlobal/25);
+      text("Matxir ch'amkipnacha",width/2, altoGlobal/5 + 4*altoGlobal/25);
+      text("Kallapshpuntish imk'ktma",width/2, altoGlobal/5 + 5*altoGlobal/25);
+      text("Matxir ch'amkipnacha",width/2, altoGlobal/5 + 6*altoGlobal/25);
+      text("Shuqushpujyish imk'ktma",width/2, altoGlobal/5 + 7*altoGlobal/25);
+      text("Mayut' umaps ch'uyshuwqiwa",width/2, altoGlobal/5 + 8*altoGlobal/25);
+      text("Wasap'w upaps waski",width/2, altoGlobal/5 + 9*altoGlobal/25);
+      text("Jaktacham yuyt'amata",width/2, altoGlobal/5 + 10*altoGlobal/25);
+      text("T'akimw akqamata",width/2, altoGlobal/5 + 11*altoGlobal/25);
+      text("Matxir ch'amkipnacha",width/2, altoGlobal/5 + 12*altoGlobal/25); 
+      text("Kallapshpuntish imk'ktma",width/2, altoGlobal/5 + 13*altoGlobal/25);
+      text("Matxir ch'amkipnacha",width/2, altoGlobal/5 + 14*altoGlobal/25);
+      text("Shuqushpujyish imk'ktma",width/2, altoGlobal/5 + 15*altoGlobal/25);
+      
       menuButtons[8].update();
       menuButtons[8].display();
       break;
@@ -818,100 +1128,241 @@ void draw(){
       break; 
     case 80:   // Submenú || Quechua || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 81:   // Submenú || Quechua || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 82:   // Submenú || Quechua || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 83:   // Submenú || Quechua || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre? / Mi nombre es _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 84:   // Submenú || Quechua || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes? / Yo tengo _ años",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 85:   // Submenú || Quechua || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres? / Yo soy de _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 86:   // Submenú || Quechua || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives? / Yo vivo en _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 87:   // Submenú || Quechua || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo? / Estoy yendo a _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 88:   // Submenú || Quechua || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<3;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 89:   // Submenú || Quechua || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=3;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 90:   // Submenú || Quechua || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<9;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 91:   // Submenú || Quechua || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=9;i<12;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 92:   // Submenú || Quechua || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=12;i<15;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 93:   // Submenú || Quechua || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=15;i<18;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 94:   // Submenú || Quechua || Verbo: Cantar || 7
       background(255);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1015,36 +1466,86 @@ void draw(){
       break;
     case 109:  // Submenú || Quechua || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 110:  // Submenú || Quechua || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 111:  // Submenú || Quechua || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 112:  // Submenú || Quechua || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 113:  // Submenú || Quechua || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 114:  // Submenú || Quechua || Animales || 1
       background(255);
@@ -1067,11 +1568,26 @@ void draw(){
       break;
     case 117:  // Submenú || Quechua || Cantemos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Cantemos",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      textFont(fontcancion,int(altoGlobal/20));
+      fill(153,51,102);
+      text("Aysarillawan chutarillawan", width/2, altoGlobal/4);
+      text("Pharilla phallchaschallay",width/2, altoGlobal/4 + altoGlobal/15);
+      text("Kaylla sumaq panpachi",width/2, altoGlobal/4 + 2*altoGlobal/15);
+      text("Pharilla phallchaschallay", width/2,  altoGlobal/4 + 3*altoGlobal/15);
+      text("Icha ima ninkiraqchu",width/2, altoGlobal/4 + 4*altoGlobal/15);
+      text("Pharilla phallchaschallay",width/2, altoGlobal/4 + 5*altoGlobal/15);
+      
       menuButtons[8].update();
       menuButtons[8].display();
       break;
     case 118:  // Submenú || Shipibo
-      background(238);
+      background(255);
       textFont(fontsubmenu,int(altoGlobal/5));
       fill(98);
       text(lenguas[3],2.5*int(anchoGlobal/9),3*int(altoGlobal/13));
@@ -1084,100 +1600,242 @@ void draw(){
       break; 
     case 119:  // Submenú || Shipibo || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 120:  // Submenú || Shipibo || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 121:  // Submenú || Shipibo || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 122:  // Submenú || Shipibo || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre? / Mi nombre es _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 123:  // Submenú || Shipibo || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes? / Yo tengo _ años",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 124:  // Submenú || Shipibo || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres? / Yo soy de _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 125:  // Submenú || Shipibo || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives? / Yo vivo en _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 126:  // Submenú || Shipibo || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo? / Estoy yendo a _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 127:  // Submenú || Shipibo || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<3;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 128:  // Submenú || Shipibo || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=3;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 129:  // Submenú || Shipibo || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<9;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 130:  // Submenú || Shipibo || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=9;i<12;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 131:  // Submenú || Shipibo || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=12;i<15;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 132:  // Submenú || Shipibo || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=15;i<18;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 133:  // Submenú || Shipibo || Verbo: Cantar || 7
       background(255);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1281,36 +1939,86 @@ void draw(){
       break;
     case 148:  // Submenú || Shipibo || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 149:  // Submenú || Shipibo || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 150:  // Submenú || Shipibo || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 151:  // Submenú || Shipibo || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 152:  // Submenú || Shipibo || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 153:  // Submenú || Shipibo || Animales || 1
       background(255);
@@ -1333,6 +2041,21 @@ void draw(){
       break;
     case 156:  // Submenú || Shipibo || Cantemos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Cantemos",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      textFont(fontcancion,int(altoGlobal/20));
+      fill(153,51,102);
+      text("Atsa xeati", width/2, altoGlobal/4);
+      text("Kikin noe",width/2, altoGlobal/4 + altoGlobal/15);
+      text("Kari betan meskoa",width/2, altoGlobal/4 + 2*altoGlobal/15);
+      text("Kikin noe", width/2,  altoGlobal/4 + 3*altoGlobal/15);
+      text("Rabe nononra iaman jake",width/2, altoGlobal/4 + 4*altoGlobal/15);
+      text("Nashi nashishamani kanx kanx ikai",width/2, altoGlobal/4 + 5*altoGlobal/15);
+      
       menuButtons[8].update();
       menuButtons[8].display();
       break;
@@ -1350,100 +2073,241 @@ void draw(){
       break; 
     case 158:  // Submenú || Matsiguenka || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 159:  // Submenú || Matsiguenka || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 160:  // Submenú || Matsiguenka || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 161:  // Submenú || Matsiguenka || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre? / Mi nombre es _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 162:  // Submenú || Matsiguenka || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes? / Yo tengo _ años",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 163:  // Submenú || Matsiguenka || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres? / Yo soy de _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 164:  // Submenú || Matsiguenka || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives? / Yo vivo en _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 165:  // Submenú || Matsiguenka || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo? / Estoy yendo a _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 166:  // Submenú || Matsiguenka || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<3;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 167:  // Submenú || Matsiguenka || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=3;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 168:  // Submenú || Matsiguenka || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<9;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 169:  // Submenú || Matsiguenka || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=9;i<12;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 170:  // Submenú || Matsiguenka || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=12;i<15;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 171:  // Submenú || Matsiguenka || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=15;i<18;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 172:  // Submenú || Matsiguenka || Verbo: Cantar || 7
       background(255);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1547,36 +2411,86 @@ void draw(){
       break;
     case 187:  // Submenú || Matsiguenka || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 188:  // Submenú || Matsiguenka || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 189:  // Submenú || Matsiguenka || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 190:  // Submenú || Matsiguenka || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 191:  // Submenú || Matsiguenka || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 192:  // Submenú || Matsiguenka || Animales || 1
       background(255);
@@ -1599,6 +2513,31 @@ void draw(){
       break;
     case 195:  // Submenú || Matsiguenka || Cantemos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Cantemos",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      textFont(fontcancion,int(altoGlobal/30));
+      fill(153,51,102);
+      text("Kasankari kajuiki, kasankari otega;", width/2, altoGlobal/5);
+      text("kasankari kajuiki, kasankari otega.",width/2, altoGlobal/5 + altoGlobal/25);
+      text("Okiaenkatanakena nogirimashiku",width/2, altoGlobal/5 + 2*altoGlobal/25);
+      text("kasakari kajuiki, kasankari otega.", width/2,  altoGlobal/5 + 3*altoGlobal/25);
+      text("Okiaenkatanakena nanigakiku,",width/2, altoGlobal/5 + 4*altoGlobal/25);
+      text("kasankari kajuiki, kasankari otega.",width/2, altoGlobal/5 + 5*altoGlobal/25);
+      text("Okiaenkatanakena magatiro novatsaku,",width/2, altoGlobal/5 + 6*altoGlobal/25);
+      text("kasankari kajuiki, kasankari otega.",width/2, altoGlobal/5 + 7*altoGlobal/25);
+      text("Noshokavetanakarora otishi, tera osagite",width/2, altoGlobal/5 + 8*altoGlobal/25);
+      text("kasankari kajuiki, kasankari otega",width/2, altoGlobal/5 + 9*altoGlobal/25);
+      text("Irorotarityo maika gara nomagisantiro",width/2, altoGlobal/5 + 10*altoGlobal/25);
+      text("okasankatakera, kasankari kajuiki, kasankari otega",width/2, altoGlobal/5 + 11*altoGlobal/25);
+      text("Irorotarityo maika gara nomagisantiro okasankatakera,",width/2, altoGlobal/5 + 12*altoGlobal/25); 
+      text("kasankari kajuiki, kasankari otega",width/2, altoGlobal/5 + 13*altoGlobal/25);
+      text("¡Nero!...",width/2, altoGlobal/5 + 14*altoGlobal/25);
+  
+      
       menuButtons[8].update();
       menuButtons[8].display();
       break;
@@ -1616,100 +2555,241 @@ void draw(){
       break; 
     case 197:  // Submenú || Yine || Saludándonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - saludo y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 198:  // Submenú || Yine || Saludándonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - despedida y respuesta",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 199:  // Submenú || Yine || Saludándonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Saludándonos - afirmación y negación",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 200:  // Submenú || Yine || Conociendonos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos -  ¿Cuál es tu nombre? / Mi nombre es _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
+      }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 201:  // Submenú || Yine || Conociendonos || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Cuántos años tienes? / Yo tengo _ años",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 202:  // Submenú || Yine || Conociendonos || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿De dónde eres? / Yo soy de _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 203:  // Submenú || Yine || Conociendonos || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿Dónde vives? / Yo vivo en _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 204:  // Submenú || Yine || Conociendonos || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Conociéndonos - ¿A dónde estás yendo? / Estoy yendo a _",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 205:  // Submenú || Yine || Verbo: Cantar || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<3;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 206:  // Submenú || Yine || Verbo: Cantar || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=3;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 207:  // Submenú || Yine || Verbo: Cantar || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=6;i<9;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 208:  // Submenú || Yine || Verbo: Cantar || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 1ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=9;i<12;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 209:  // Submenú || Yine || Verbo: Cantar || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 2da persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=12;i<15;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 210:  // Submenú || Yine || Verbo: Cantar || 6
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Estamos viviendo - verbo cantar 3ra persona plural",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=15;i<18;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 211:  // Submenú || Yine || Verbo: Cantar || 7
       background(255);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
@@ -1813,36 +2893,86 @@ void draw(){
       break;
     case 226:  // Submenú || Yine || Madre tierra || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=7;i<=8;i++){
         menuButtons[i].update();
         menuButtons[i].display();  
       }
+      for(int i=0;i<2;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 227:  // Submenú || Yine || Madre tierra || 2
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=2;i<4;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 228:  // Submenú || Yine || Madre tierra || 3
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
+      }
+      for(int i=4;i<6;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
       }
       break;
     case 229:  // Submenú || Yine || Madre tierra || 4
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       for(int i=6;i<=7;i++){
         menuButtons[i].update();
         menuButtons[i].display();
       }
+      for(int i=6;i<8;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 230:  // Submenú || Yine || Madre tierra || 5
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Madre tierra",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
       menuButtons[6].update();
       menuButtons[6].display();
+      for(int i=8;i<10;i++){
+       contenidoButtons[i].display();
+       contenidoButtons[i].update();
+      }
       break;
     case 231:  // Submenú || Yine || Animales || 1
       background(255);
@@ -1865,6 +2995,22 @@ void draw(){
       break;
     case 234:  // Submenú || Yine || Cantemos || 1
       background(255);
+      textAlign(LEFT);
+      textFont(fontsubmenu,int(altoGlobal/15));
+      fill(98);
+      text("Cantemos",int(anchoGlobal/9),1.5*int(altoGlobal/13));
+      textAlign(CENTER);
+      
+      textFont(fontcancion,int(altoGlobal/20));
+      fill(153,51,102);
+      text("Tnachnenro kamowni,", width/2, altoGlobal/4);
+      text("tnachnenro kamowni",width/2, altoGlobal/4 + altoGlobal/15);
+      text("goglugimatanunro goglugimatanunro",width/2, altoGlobal/4 + 2*altoGlobal/15);
+      text("xako gitanukoka kamowashwatajiji", width/2,  altoGlobal/4 + 3*altoGlobal/15);
+      text("tnachnenro kamowni tnachnenro kamowni",width/2, altoGlobal/4 + 4*altoGlobal/15);
+      text("goglugimatanunro goglugimatanunro",width/2, altoGlobal/4 + 5*altoGlobal/15);
+      text("xako gitanukoka kamoshwatajiji",width/2, altoGlobal/4 + 6*altoGlobal/15);
+      
       menuButtons[8].update();
       menuButtons[8].display();
       break;
@@ -1874,3 +3020,78 @@ void draw(){
       break;
   }
 }
+
+//audio
+/*void saludandonosa(){
+  a01 = new APMediaPlayer(this); //create new APMediaPlayer
+  a01.setMediaFile("a01.mp3"); //set the file (files are in data folder)
+  a01.setLooping(false); //restart playback end reached
+  a01.setVolume(1.0, 1.0);  
+}
+public void onDestroy() {
+
+  super.onDestroy(); //call onDestroy on super class
+  if(a01!=null) { //must be checked because or else crash when return from landscape mode
+    a01.release(); //release the player
+
+  }
+}*/
+public void onDestroy() {
+
+  super.onDestroy(); //call onDestroy on super class
+  if(p1!=null){ //must be checked because or else crash when return from landscape mode
+    p1.release(); //release the player
+  }
+  if(p2!=null){
+    p2.release();
+  }
+  if(p3!=null){
+    p3.release();
+  }
+  if(p4!=null){
+    p4.release();
+  }
+  if(p5!=null){
+    p5.release();
+  }
+  if(p6!=null){
+    p6.release();
+  }
+  if(p7!=null){
+    p7.release();
+  }
+  if(p8!=null){
+    p8.release();
+  }
+  if(p9!=null){
+    p9.release();
+  }
+  if(p10!=null){
+    p10.release();
+  }
+  if(p11!=null){
+    p11.release();
+  }
+  if(p12!=null){
+    p12.release();
+  }
+  if(p13!=null){
+    p13.release();
+  }
+  if(p14!=null){
+    p14.release();
+  }
+  if(p15!=null){
+    p15.release();
+  }
+  if(p16!=null){
+    p16.release();
+  }
+  if(p17!=null){
+    p17.release();
+  }
+  if(p18!=null){
+    p18.release();
+  }
+}
+
